@@ -1,0 +1,58 @@
+@namespace Minigolf.UI
+@attribute [StyleSheet]
+
+@if (!Client.IsValid())
+	return;
+
+<root class=@( Client.Local == Client ? "me" : "" )>
+	<div class="player">
+		<text class="position">@( SiblingIndex + 1 )</text>
+		<img src="avatar:@Client.SteamId" class="avatar" />
+		<text class="name">@Client.DisplayName</text>
+	</div>
+	<div class="scores">
+		<div>
+			@for ( int i = 0; i < GameManager.Holes.Count; ++i )
+			{
+				var currentHole = GameManager.CurrentHole;
+				if (currentHole is null)
+					continue;
+
+				var currentHoleIndex = GameManager.CurrentHoleIndex;
+				if ( currentHoleIndex < i )
+				{
+					<label>-</label>
+					continue;
+				}
+
+				var par = Client.GetPar( GameManager.Holes[i].HoleNumber );
+				var holePar = GameManager.Holes[i].Par;
+				var isActive = currentHoleIndex == i;
+				var isBelow = par < holePar;
+				var isOver = par > holePar;
+
+				<label class="
+				@( isActive ? "active" : "" )
+				@( isBelow ? "below" : "" )
+				@( isOver ? "over" : "" )">
+					@par
+				</label>
+			}
+		</div>
+		<text class="total">@Client.GetTotalPar()</text>
+	</div>
+</root>
+
+@code {
+	public Client Client { get; set; }
+
+	protected override int BuildHash()
+	{
+		return HashCode.Combine
+		(
+			Client?.SteamId,
+			Client?.DisplayName,
+			GameManager.Holes.HashCombine(h => Client?.GetPar(h.HoleNumber) ?? -1)
+		);
+	}
+}

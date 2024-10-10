@@ -1,0 +1,24 @@
+@namespace Minigolf.UI
+@inherits PanelComponent
+@attribute [StyleSheet]
+
+@implements IGameEventHandler<BallCuppedEvent>
+
+<root />
+
+@code {
+	void IGameEventHandler<BallCuppedEvent>.OnGameEvent( BallCuppedEvent eventArgs )
+    {
+		Panel.PlaySound("minigolf_award");
+
+		if (!eventArgs.Client.IsValid())
+			return;
+
+		Panel.AddChild(new ScoreFeedEntry() { 
+			DisplayName = eventArgs.Client.DisplayName,
+			SteamId = eventArgs.Client.SteamId,
+			Par = eventArgs.HoleInfo.Par,
+			Score = eventArgs.Score 
+		});
+	}
+}

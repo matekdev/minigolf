@@ -1,0 +1,56 @@
+@import "/UI/Style.scss";
+
+TextChatEntry {
+  background-color: rgba($dark-grey, 0.9);
+  margin-top: 5px;
+  color: white;
+  transition: all 0.1s ease-out;
+  box-shadow: 0 3px 10px rgba(#000, 0.5);
+  padding: 5px 10px;
+  min-height: 32px;
+  max-width: 100%;
+  transform: scale(1);
+  flex-direction: row;
+  border-radius: 16px;
+  flex-shrink: 0;
+  font-family: $font-family;
+
+  &:intro {
+    max-height: 0px;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  &.stale {
+    transition: opacity 1s ease;
+    opacity: 0;
+  }
+
+  img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-right: 8px;
+    flex-shrink: 0;
+  }
+
+  .name {
+    color: $light-blue;
+    margin-right: 16px;
+    text-shadow: 0 2 0 $dark-blue;
+    text-stroke: 2px $dark-blue;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .msg {
+    color: #fff;
+    text-shadow: 0 2 0 $dark-blue;
+    text-stroke: 2px $dark-blue;
+    font-size: 16px;
+    flex-grow: 1;
+  }
+}

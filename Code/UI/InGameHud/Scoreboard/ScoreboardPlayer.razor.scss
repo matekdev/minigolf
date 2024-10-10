@@ -1,0 +1,86 @@
+@import "/UI/Style.scss";
+
+ScoreboardPlayer {
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0.3);
+
+    &:nth-child(even) {
+        background-color: rgba(0, 0, 0, 0.6);
+
+        &.me {
+            background-color: rgba($green, 0.4);
+        }
+    }
+
+    &:last-child {
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+    }
+
+    label {
+        font-size: 20px;
+        color: white;
+        font-weight: 300;
+        text-shadow: 0 2 0 #000;
+        text-stroke: 2px #000;
+        border-radius: 4px;
+    }
+
+    .player {
+        flex-direction: row;
+        flex-grow: 1;
+        padding: 4px 8px;
+        align-items: center;
+
+        .position {
+            align-items: center;
+            justify-content: center;
+            margin-left: 8px;
+            margin-right: 16px;
+            font-size: 18px;
+        }
+
+        .avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+        }
+
+        .name {
+            margin-left: 8px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+    }
+
+    .scores {
+        align-items: center;
+
+        >div {
+            >label {
+                width: 40px;
+                text-align: center;
+                white-space: nowrap;
+
+                &.active {
+                    background-color: $dark-grey;
+                    font-weight: 500;
+                }
+
+                &.below {
+                    color: $green;
+                }
+
+                &.over {
+                    color: rgb(255, 100, 100);
+                }
+            }
+        }
+
+        .total {
+            width: 96px;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+    }
+}

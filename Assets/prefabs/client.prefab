@@ -1,0 +1,23 @@
+{
+  "RootObject": {
+    "__guid": "93fcb1f2-1b71-4d6d-acbf-ebb7caa8f273",
+    "Flags": 0,
+    "Name": "client",
+    "Enabled": true,
+    "NetworkMode": 1,
+    "Components": [
+      {
+        "__type": "Minigolf.Client",
+        "__guid": "370df2ba-f400-4caa-89df-ab0980db1ab7"
+      }
+    ],
+    "Children": [],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

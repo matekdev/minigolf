@@ -1,0 +1,241 @@
+{
+  "__guid": "a505d3c4-0261-4517-99ae-dac6f45fc6ce",
+  "GameObjects": [
+    {
+      "__guid": "41a0bae3-b9ea-4c75-800f-7ca7905a0c06",
+      "Flags": 0,
+      "Name": "Game",
+      "Enabled": true,
+      "NetworkMode": 1,
+      "NetworkOrphaned": 1,
+      "__Prefab": "prefabs/gamemanager.prefab",
+      "__PrefabVariables": {}
+    },
+    {
+      "__guid": "bfc59c12-1ed2-4f91-8956-a95a315eac3c",
+      "Flags": 0,
+      "Name": "Sun",
+      "Rotation": "-0.0729315,0.4822396,0.1305433,0.8631827",
+      "Tags": "light_directional,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.DirectionalLight",
+          "__guid": "d3659344-a90d-48fa-927a-095f70fe041f",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.94419,0.97767,1,1",
+          "Shadows": true,
+          "SkyColor": "0.2532,0.32006,0.35349,1"
+        }
+      ]
+    },
+    {
+      "__guid": "00344a8c-fa5e-45ae-b12a-10bb781a1dc3",
+      "Flags": 0,
+      "Name": "2D Skybox",
+      "Tags": "skybox",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SkyBox2D",
+          "__guid": "de79e9e0-5c37-4c54-ac67-bfcdb1d5483b",
+          "SkyMaterial": "materials/skybox/skybox_day_01.vmat",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.EnvmapProbe",
+          "__guid": "f3e304db-baab-4c1a-a4ec-8442585c2d62",
+          "Texture": "textures/cubemaps/default2.vtex",
+          "Bounds": {
+            "Mins": "-512,-512,-512",
+            "Maxs": "512,512,512"
+          },
+          "DelayBetweenUpdates": 0.1,
+          "Feathering": 0.02,
+          "FrameInterval": 5,
+          "MaxDistance": 512,
+          "MultiBounce": false,
+          "Projection": "Sphere",
+          "RenderDynamically": false,
+          "TintColor": "1,1,1,1",
+          "UpdateStrategy": "OnEnabled",
+          "ZFar": 4096,
+          "ZNear": 16
+        }
+      ]
+    },
+    {
+      "__guid": "1210055a-347e-4de9-b6ab-5f4abfa2a8c1",
+      "Flags": 0,
+      "Name": "Map",
+      "Enabled": true,
+      "Children": [
+        {
+          "__guid": "9cfe58ca-5de7-48c2-a5da-b832341697bb",
+          "Flags": 0,
+          "Name": "Hole #1",
+          "Enabled": true,
+          "Children": [
+            {
+              "__guid": "b482460f-de5f-403f-b2b7-005a48fa1cf6",
+              "Flags": 0,
+              "Name": "Hole Spawn #1",
+              "Position": "0,0,11.09346",
+              "Rotation": "0,-0,-1,-0.00000004371139",
+              "Enabled": true,
+              "__Prefab": "prefabs/map/golfball_spawnpoint.prefab",
+              "__PrefabVariables": {
+                "Hole Number": 1,
+                "Hole Par": 3
+              }
+            },
+            {
+              "__guid": "8f475d6a-e0c2-441f-835d-a3e27add445f",
+              "Flags": 0,
+              "Name": "End",
+              "Position": "-200,0,0",
+              "Rotation": "-0,0,1,-0.00000004371139",
+              "Enabled": true,
+              "__Prefab": "prefabs/map/tile.prefab",
+              "__PrefabVariables": {
+                "Tile": "models/tileset/hole-square.vmdl"
+              }
+            },
+            {
+              "__guid": "3b28667e-53f2-486c-8b15-ddee55a8249e",
+              "Flags": 0,
+              "Name": "Straight (1)",
+              "Position": "-100,0,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/map/tile.prefab",
+              "__PrefabVariables": {
+                "Tile": "models/tileset/straight.vmdl"
+              }
+            },
+            {
+              "__guid": "7de3c7fd-4340-4e32-929d-16ad496bf958",
+              "Flags": 0,
+              "Name": "Straight",
+              "Enabled": true,
+              "__Prefab": "prefabs/map/tile.prefab",
+              "__PrefabVariables": {
+                "Tile": "models/tileset/straight.vmdl"
+              }
+            },
+            {
+              "__guid": "aeaccf52-c21a-4fcb-a6ca-9f46424a29ac",
+              "Flags": 0,
+              "Name": "Hole End #1",
+              "Position": "-200.2511,-0.118041,-0.1996735",
+              "Enabled": true,
+              "NetworkMode": 1,
+              "NetworkOrphaned": 1,
+              "__Prefab": "prefabs/map/hole_goal.prefab",
+              "__PrefabVariables": {
+                "Hole Number": 1,
+                "Size": "20,20,10"
+              }
+            }
+          ]
+        },
+        {
+          "__guid": "34dcac52-e6e0-4c19-965c-2612984113f2",
+          "Flags": 0,
+          "Name": "Hole #2",
+          "Position": "0,200,0",
+          "Enabled": true,
+          "Children": [
+            {
+              "__guid": "1defba46-2a7c-45ed-b79d-5a8ba1d849de",
+              "Flags": 0,
+              "Name": "Hole Spawn #2",
+              "Position": "0,0,10.12902",
+              "Rotation": "0,-0,-1,-0.00000004371139",
+              "Enabled": true,
+              "__Prefab": "prefabs/map/golfball_spawnpoint.prefab",
+              "__PrefabVariables": {
+                "Hole Number": 2,
+                "Hole Par": 3
+              }
+            },
+            {
+              "__guid": "7f67c438-703e-42a2-a1c4-4a77ef989340",
+              "Flags": 0,
+              "Name": "Straight (1)",
+              "Position": "-100,0,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/map/tile.prefab",
+              "__PrefabVariables": {
+                "Tile": "models/tileset/straight.vmdl"
+              }
+            },
+            {
+              "__guid": "8a77c70f-eb5b-4395-9596-ab4f4e5ae8dd",
+              "Flags": 0,
+              "Name": "Straight",
+              "Position": "0,0,0",
+              "Enabled": true,
+              "__Prefab": "prefabs/map/tile.prefab",
+              "__PrefabVariables": {
+                "Tile": "models/tileset/straight.vmdl"
+              }
+            },
+            {
+              "__guid": "8f082d66-06ce-4a04-869d-2b08f16540b1",
+              "Flags": 0,
+              "Name": "End (1)",
+              "Position": "-200,0,0",
+              "Rotation": "0,0,1,-0.00000004371139",
+              "Enabled": true,
+              "__Prefab": "prefabs/map/tile.prefab",
+              "__PrefabVariables": {
+                "Tile": "models/tileset/hole-square.vmdl"
+              }
+            },
+            {
+              "__guid": "bb2f7f36-60f5-429b-ae85-1e9e98abde89",
+              "Flags": 0,
+              "Name": "Hole End #2",
+              "Position": "-199.1554,-1.446686,0.362893",
+              "Enabled": true,
+              "NetworkMode": 1,
+              "NetworkOrphaned": 1,
+              "__Prefab": "prefabs/map/hole_goal.prefab",
+              "__PrefabVariables": {
+                "Hole Number": 2,
+                "Size": "15,25,10"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 60,
+    "NetworkInterpolation": true,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "minimal",
+  "Description": "",
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

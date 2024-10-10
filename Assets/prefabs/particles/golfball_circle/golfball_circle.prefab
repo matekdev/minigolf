@@ -1,0 +1,27 @@
+{
+  "RootObject": {
+    "__guid": "8617d203-abe6-42a0-b2ee-93a074db9219",
+    "Flags": 0,
+    "Name": "golfball_circle",
+    "Tags": "particles",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Sandbox.LegacyParticleSystem",
+        "__guid": "421ac3c7-f60f-4237-baf9-99d15061031c",
+        "ControlPoints": [],
+        "Looped": false,
+        "Particles": "prefabs/particles/golfball_circle/ball_circle.vpcf",
+        "PlaybackSpeed": 1
+      }
+    ],
+    "Children": [],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

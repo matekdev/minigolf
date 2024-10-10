@@ -1,0 +1,53 @@
+@import "/UI/Style.scss";
+
+TextChat {
+    position: absolute;
+    bottom: 160px;
+    left: 50px;
+    flex-direction: column;
+    width: 500px;
+    height: 300px;
+    font-size: 13px;
+    font-family: $font-family;
+
+    textentry {
+        opacity: 0;
+        color: white;
+        padding: 10px 16px;
+        background-color: rgba($dark-grey, 0.9);
+        font-size: 14px;
+        flex-shrink: 0;
+        flex-grow: 0;
+        width: 100%;
+        border-radius: 30px;
+        margin-top: 5px;
+
+        label {
+            word-break: break-all;
+            white-space: normal;
+        }
+    }
+
+    .canvas {
+        flex-direction: column;
+        align-items: flex-start;
+        overflow: scroll;
+        width: 100%;
+        height: 100%;
+    }
+
+    &.open {
+        textentry {
+            opacity: 1;
+            backdrop-filter: blur(10px);
+            pointer-events: all;
+        }
+
+        .canvas {
+            TextChatEntry {
+                transition: opacity 0.1s ease;
+                opacity: 1;
+            }
+        }
+    }
+}

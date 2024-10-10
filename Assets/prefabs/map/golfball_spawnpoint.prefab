@@ -1,0 +1,47 @@
+{
+  "RootObject": {
+    "__guid": "d3528487-6114-44cd-b06d-bac03359a777",
+    "Flags": 0,
+    "Name": "golfball_spawnpoint",
+    "Enabled": true,
+    "NetworkMode": 1,
+    "NetworkOrphaned": 1,
+    "Components": [
+      {
+        "__type": "Minigolf.GolfBallSpawnPoint",
+        "__guid": "a3dd8fdc-8f07-43b3-a5b7-6aaf6d0f0e00",
+        "HoleNumber": 1,
+        "HolePar": 3
+      }
+    ],
+    "Children": [],
+    "__variables": [
+      {
+        "Id": "Hole Number",
+        "Title": "Hole Number",
+        "Targets": [
+          {
+            "Id": "a3dd8fdc-8f07-43b3-a5b7-6aaf6d0f0e00",
+            "Property": "HoleNumber"
+          }
+        ]
+      },
+      {
+        "Id": "Hole Par",
+        "Title": "Hole Par",
+        "Targets": [
+          {
+            "Id": "a3dd8fdc-8f07-43b3-a5b7-6aaf6d0f0e00",
+            "Property": "HolePar"
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

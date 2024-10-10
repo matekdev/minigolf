@@ -1,0 +1,48 @@
+{
+  "RootObject": {
+    "__guid": "0ebcbd95-7650-4f4a-aac5-82de06b39a5b",
+    "Flags": 0,
+    "Name": "tileset",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Sandbox.ModelRenderer",
+        "__guid": "7e871527-2722-48fe-bee4-597731770c4d",
+        "BodyGroups": 18446744073709551615,
+        "Model": "models/tileset/straight.vmdl",
+        "RenderType": "On",
+        "Tint": "1,1,1,1"
+      },
+      {
+        "__type": "Sandbox.ModelCollider",
+        "__guid": "2f5a0425-e114-4e67-a73d-a679413efc08",
+        "IsTrigger": false,
+        "Model": "models/tileset/straight.vmdl",
+        "Static": false
+      }
+    ],
+    "Children": [],
+    "__variables": [
+      {
+        "Id": "Tile",
+        "Title": "Tile",
+        "Targets": [
+          {
+            "Id": "7e871527-2722-48fe-bee4-597731770c4d",
+            "Property": "Model"
+          },
+          {
+            "Id": "2f5a0425-e114-4e67-a73d-a679413efc08",
+            "Property": "Model"
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

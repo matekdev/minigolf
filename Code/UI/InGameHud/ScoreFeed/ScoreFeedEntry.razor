@@ -1,0 +1,34 @@
+@namespace Minigolf.UI
+@attribute [StyleSheet]
+
+<root>
+	<img src="@($"avatar:{SteamId}")" />
+	@if (Score == 1)
+	{
+		<label class="score holeinone">Hole-in-One</label>
+	}
+	else
+	{
+		<label class="score">@Scores.GetScoreText(Par, Score)</label>
+	}
+	<label>scored</label>
+	<label class="name">@DisplayName</label>
+</root>
+
+@code {
+	public string DisplayName { get; set; }
+	public ulong SteamId { get; set; }
+	public int Par { get; set; }
+	public int Score { get; set; }
+
+	public ScoreFeedEntry()
+	{
+		DelayedDelete();
+	}
+
+	private async void DelayedDelete()
+	{
+		await GameTask.DelaySeconds(5f);
+		Delete();
+	}
+}

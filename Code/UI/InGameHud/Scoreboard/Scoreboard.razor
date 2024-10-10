@@ -1,0 +1,132 @@
+@namespace Minigolf.UI
+@inherits PanelComponent
+@attribute [StyleSheet]
+
+@implements IGameEventHandler<ForceScoreboardEvent>
+
+<root>
+	<div class="timer">
+		@{
+			if ( !string.IsNullOrEmpty( TimerTimeLeft ) || !string.IsNullOrEmpty( TimerTimeUntil ) )
+			{
+				<div>
+					<text>@TimerTimeLeft</text>
+				</div>
+				<div>
+					<text>@TimerTimeUntil</text>
+				</div>
+			}
+		}
+	</div>
+
+	<div class="scoreboard-container">
+		<div class="scoreboard-title">
+			<text>matt's minigolf</text>
+		</div>
+		<div class="scoreboard">
+			<div class="headers">
+				<div class="hole">
+					<text>Hole</text>
+					<div class="holes">
+						<div>
+							@for ( int i = 0; i < GameManager.Holes.Count; ++i )
+							{
+								var currentHole = GameManager.CurrentHole;
+								if (currentHole is null)
+									continue;
+
+								var hole = GameManager.Holes[i];
+								<label class=@( i == GameManager.CurrentHoleIndex ? "active" : "" )>@hole.HoleNumber</label>
+							}
+						</div>
+						<text class="total">Total</text>
+					</div>
+				</div>
+				<div class="par">
+					<text>Par</text>
+					<div class="holes">
+						<div>
+							@for ( int i = 0; i < GameManager.Holes.Count; ++i )
+							{
+								var currentHole = GameManager.CurrentHole;
+								if (currentHole is null)
+									continue;
+
+								var hole = GameManager.Holes[i];
+								<label class=@( i == GameManager.CurrentHoleIndex ? "active" : "" )>@hole.Par</label>
+							}
+						</div>
+						<text class="total">24</text>
+					</div>
+				</div>
+			</div>
+			<div class="players">
+				@foreach(var client in GameManager.Clients.OrderBy(client => client?.GetTotalPar()))
+				{
+					<ScoreboardPlayer Client=@client />
+				}
+			</div>
+		</div>
+		<div class="scoreboard-info">
+			<div>
+				<text class="subtext">Players: </text>
+				<text>@GameManager.Clients.Count</text>
+			</div>
+			<div>
+				<text class="subtext">Map: </text>
+				<text>Cozy Park</text>
+			</div>
+		</div>
+	</div>
+</root>
+
+@code {
+	public bool ForceOpen;
+
+	public string TimerTimeLeft
+	{
+		get
+		{
+			@* if ( MinigolfGame.Current.State == GameState.EndOfGame )
+				return $"00:{Math.Max( 0, (int)MathF.Floor( MinigolfGame.Current.ReturnToLobbyTime - Time.Now ) ).ToString( "D2" )}";
+			if ( MinigolfGame.Current.IsHoleEnding )
+				return $"00:{Math.Max( 0, (int)MathF.Floor( MinigolfGame.Current.NextHoleTime - Time.Now ) ).ToString( "D2" )}"; *@
+			return "";
+		}
+	}
+
+	public string TimerTimeUntil
+	{
+		get
+		{
+			return "";
+		}
+	}
+
+	protected override void OnUpdate()
+	{
+		if ( ForceOpen )
+			SetClass( "open", true );
+		else
+			SetClass( "open", Input.Down( InputAction.Tab ) );
+	}
+
+	[Broadcast]
+	public static void ForceScoreboard(bool open)
+	{
+		Game.ActiveScene.Dispatch(new ForceScoreboardEvent(open));
+	}
+
+	void IGameEventHandler<ForceScoreboardEvent>.OnGameEvent( ForceScoreboardEvent eventArgs )
+    {
+		ForceOpen = eventArgs.Open;
+	}
+
+	protected override int BuildHash()
+	{
+		var clients = GameManager.Clients.HashCombine(c => HashCode.Combine(c?.SteamId, c?.GetTotalPar()));
+		var currentHole = GameManager.CurrentHole;
+
+		return HashCode.Combine(clients, currentHole);
+	}
+}

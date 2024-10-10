@@ -1,0 +1,43 @@
+{
+  "RootObject": {
+    "__guid": "fb622ca2-859e-4757-b251-924ce47807f5",
+    "Flags": 0,
+    "Name": "spectate",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Minigolf.Spectate",
+        "__guid": "5e799ecc-6380-4f69-b735-b1af8b1139a6",
+        "Camera": {
+          "_type": "gameobject",
+          "go": "fb622ca2-859e-4757-b251-924ce47807f5"
+        }
+      },
+      {
+        "__type": "Sandbox.CameraComponent",
+        "__guid": "e9ed212f-39d5-49f7-a5f4-525eeb56eb7d",
+        "BackgroundColor": "0.33333,0.46275,0.52157,1",
+        "ClearFlags": "All",
+        "FieldOfView": 60,
+        "IsMainCamera": true,
+        "Orthographic": false,
+        "OrthographicHeight": 1204,
+        "Priority": 1,
+        "RenderExcludeTags": "",
+        "RenderTags": "",
+        "TargetEye": "None",
+        "Viewport": "0,0,1,1",
+        "ZFar": 10000,
+        "ZNear": 10
+      }
+    ],
+    "Children": [],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

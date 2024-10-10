@@ -1,0 +1,70 @@
+{
+  "RootObject": {
+    "__guid": "3afe826c-e0fd-4dd4-9480-d9b3aff9160f",
+    "Flags": 0,
+    "Name": "gamemanager",
+    "Enabled": true,
+    "NetworkMode": 1,
+    "NetworkOrphaned": 1,
+    "Components": [
+      {
+        "__type": "Minigolf.GameManager",
+        "__guid": "093b668a-8140-467e-a549-68c0d4314d19",
+        "ClientPrefab": {
+          "_type": "gameobject",
+          "prefab": "prefabs/client.prefab"
+        }
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "13569ac7-bb51-48d2-825b-29943f651520",
+        "Flags": 0,
+        "Name": "InGameHud",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ScreenPanel",
+            "__guid": "a5545dcf-1486-4dca-87c2-9bfd9e7f43b1",
+            "AutoScreenScale": true,
+            "Opacity": 1,
+            "Scale": 1,
+            "ScaleStrategy": "ConsistentHeight",
+            "ZIndex": 100
+          },
+          {
+            "__type": "Minigolf.UI.TextChat",
+            "__guid": "04a7aefb-19a9-4391-9b69-2d49f739215a"
+          },
+          {
+            "__type": "Minigolf.UI.PowerBar",
+            "__guid": "c8f8d351-5688-4b58-b3ef-d590fa930c57"
+          },
+          {
+            "__type": "Minigolf.UI.HoleScore",
+            "__guid": "1e088950-8ccd-4a07-a6f3-fe8279c0bc1d"
+          },
+          {
+            "__type": "Minigolf.UI.Scoreboard",
+            "__guid": "f9ae7bd0-9342-4a60-9aec-9c655ba6467a"
+          },
+          {
+            "__type": "Minigolf.UI.ScoreFeed",
+            "__guid": "3cbf0b56-224e-4349-93a2-9ccc8d5cc4eb"
+          },
+          {
+            "__type": "Minigolf.UI.ParScreen",
+            "__guid": "41995431-8976-4f9c-86e3-7c503080909a"
+          }
+        ]
+      }
+    ],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

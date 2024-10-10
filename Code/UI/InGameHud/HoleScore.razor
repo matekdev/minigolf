@@ -1,0 +1,40 @@
+@namespace Minigolf.UI
+@inherits PanelComponent
+@attribute [StyleSheet]
+
+@if (CurrentHole is null)
+	return;
+
+<root>
+	<div class="course-info">
+		<div class="info-container">
+			<label>Par</label>
+			<label class="value">@CurrentHole.Value.Par</label>
+		</div>
+
+		<div class="info-container">
+			<label>Hole</label>
+			<label class="value">@CurrentHole.Value.HoleNumber</label>
+		</div>
+	</div>
+
+	<div class="stroke-ball">
+		<label>@Client.Local.GetPar(CurrentHole.Value.HoleNumber)</label>
+	</div>
+</root>
+
+@code {
+	private HoleInfo? CurrentHole => GameManager.CurrentHole;
+
+	protected override int BuildHash()
+	{
+		if (CurrentHole is null)
+			return -1;
+
+		return HashCode.Combine(
+			CurrentHole.Value.Par, 
+			CurrentHole.Value.HoleNumber, 
+			Client.Local.GetPar(CurrentHole.Value.HoleNumber)
+		);
+	}
+}

@@ -1,0 +1,26 @@
+@namespace Minigolf.UI
+@attribute [StyleSheet]
+
+<root>
+	@if ( SteamId > 0 )
+	{
+		<img src="avatar:@SteamId" />
+	}
+
+	@if ( !string.IsNullOrEmpty( Name ) )
+	{
+		<label class="name">@Name</label>
+	}
+
+	<div>
+		<label class="msg">@Message</label>
+	</div>
+</root>
+
+@code
+{
+	public string Name { get; set; }
+	public string Message { get; set; }
+	public ulong SteamId { get; set; }
+	public TimeSince Lifetime { get; init; } = 0;
+}

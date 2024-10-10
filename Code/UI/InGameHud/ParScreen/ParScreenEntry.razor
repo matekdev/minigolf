@@ -1,0 +1,43 @@
+@namespace Minigolf.UI
+@attribute [StyleSheet]
+
+<root>
+	@if ( Strokes == 1 )
+	{
+		<div class="score hole-in-one">
+			<label>Hole</label>
+			<label>in</label>
+			<label>One</label>
+		</div>
+	}
+	else
+	{
+		<div class="score @( $"score--{Score}" )">
+			@foreach ( var line in Scores.GetParScreenScoreText(Score).Split( ' ' ) )
+			{
+				<label>@line</label>
+			}
+		</div>
+	}
+	<label class="hole">
+		@( $"Hole {Hole}" )
+	</label>
+</root>
+
+@code {
+	public int Hole { get; set; }
+	public int Par { get; set; }
+	public int Strokes { get; set; }
+	private int Score => Par - Strokes;
+
+	public ParScreenEntry()
+	{
+		DelayedDelete();
+	}
+
+	private async void DelayedDelete()
+	{
+		await GameTask.DelaySeconds(3f);
+		Delete();
+	}
+}

@@ -1,0 +1,9 @@
+{
+  "Sequences": [
+    {
+      "Source": "prefabs/particles/golfball_circle/ball_target.png",
+      "Frames": 64
+    }
+  ],
+  "OutputTypeString": "2D"
+}

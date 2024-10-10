@@ -1,0 +1,97 @@
+{
+  "RootObject": {
+    "__guid": "f519d170-688b-4580-8d31-e2316d261a7b",
+    "Flags": 0,
+    "Name": "golfball",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Minigolf.GolfBall",
+        "__guid": "18dd68dd-452f-4d11-acdc-1d043b2eacd3",
+        "Camera": {
+          "_type": "gameobject",
+          "go": "ca90a671-79e8-4cea-b8ff-6f20a82ba2d7"
+        },
+        "CircleEffect": {
+          "_type": "gameobject",
+          "go": "d79a4599-9aea-4662-9fc2-c156f3c5afda"
+        },
+        "Renderer": {
+          "_type": "component",
+          "component_id": "17b03bc7-45ec-4501-9bfb-0ca86bc9e649",
+          "go": "db4d2869-809c-45ae-8f18-d159463f0a92",
+          "component_type": "ModelRenderer"
+        },
+        "SwingSound": "sounds/golfball_swing/golfball_swing.sound"
+      },
+      {
+        "__type": "Sandbox.BoxCollider",
+        "__guid": "98916efe-8de0-4d5a-b7eb-a7036fff9f40",
+        "Center": "0,0,0",
+        "IsTrigger": true,
+        "Scale": "3,3,3",
+        "Static": false
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "ca90a671-79e8-4cea-b8ff-6f20a82ba2d7",
+        "Flags": 0,
+        "Name": "Camera",
+        "Position": "-50,0,0",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.CameraComponent",
+            "__guid": "bffb9d35-5c56-49e4-b9d7-643461ada48e",
+            "BackgroundColor": "0.33333,0.46275,0.52157,1",
+            "ClearFlags": "All",
+            "FieldOfView": 60,
+            "IsMainCamera": true,
+            "Orthographic": false,
+            "OrthographicHeight": 1204,
+            "Priority": 1,
+            "RenderExcludeTags": "",
+            "RenderTags": "",
+            "TargetEye": "None",
+            "Viewport": "0,0,1,1",
+            "ZFar": 10000,
+            "ZNear": 10
+          }
+        ]
+      },
+      {
+        "__guid": "db4d2869-809c-45ae-8f18-d159463f0a92",
+        "Flags": 0,
+        "Name": "Model",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "17b03bc7-45ec-4501-9bfb-0ca86bc9e649",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/golf_ball/golf_ball.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "d79a4599-9aea-4662-9fc2-c156f3c5afda",
+        "Flags": 0,
+        "Name": "golfball_circle",
+        "Position": "0,0,-1.5",
+        "Tags": "particles",
+        "__Prefab": "prefabs/particles/golfball_circle/golfball_circle.prefab",
+        "__PrefabVariables": {}
+      }
+    ],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

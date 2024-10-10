@@ -1,0 +1,54 @@
+{
+  "RootObject": {
+    "__guid": "5ba72803-ca9d-45ab-9a69-07588947d9b5",
+    "Flags": 0,
+    "Name": "hole_goal",
+    "Enabled": true,
+    "NetworkMode": 1,
+    "NetworkOrphaned": 1,
+    "Components": [
+      {
+        "__type": "Minigolf.HoleGoal",
+        "__guid": "3e1b835f-bb72-4645-994a-a370e039ff19",
+        "HoleNumber": 1
+      },
+      {
+        "__type": "Sandbox.BoxCollider",
+        "__guid": "545d51d7-45e4-4381-bfe4-ff6432445566",
+        "Center": "0,0,0",
+        "IsTrigger": false,
+        "Scale": "25,25,25",
+        "Static": false
+      }
+    ],
+    "Children": [],
+    "__variables": [
+      {
+        "Id": "Hole Number",
+        "Title": "Hole Number",
+        "Targets": [
+          {
+            "Id": "3e1b835f-bb72-4645-994a-a370e039ff19",
+            "Property": "HoleNumber"
+          }
+        ]
+      },
+      {
+        "Id": "Size",
+        "Title": "Size",
+        "Targets": [
+          {
+            "Id": "545d51d7-45e4-4381-bfe4-ff6432445566",
+            "Property": "Scale"
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

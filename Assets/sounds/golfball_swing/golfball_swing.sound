@@ -1,0 +1,19 @@
+{
+  "UI": false,
+  "Volume": "5",
+  "Pitch": "0.9 1.1",
+  "Decibels": 150,
+  "SelectionMode": "Random",
+  "Sounds": [
+    "sounds/golfball_swing/golfball_swing1.vsnd",
+    "sounds/golfball_swing/golfball_swing2.vsnd",
+    "sounds/golfball_swing/golfball_swing3.vsnd"
+  ],
+  "Occlusion": true,
+  "AirAbsorption": true,
+  "Transmission": true,
+  "OcclusionRadius": 64,
+  "DistanceAttenuation": true,
+  "__references": [],
+  "__version": 0
+}

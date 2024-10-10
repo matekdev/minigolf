@@ -1,0 +1,18 @@
+@namespace Minigolf.UI
+@inherits PanelComponent
+@attribute [StyleSheet]
+
+@implements IGameEventHandler<BallCuppedEvent>
+
+<root />
+
+@code {
+	async void IGameEventHandler<BallCuppedEvent>.OnGameEvent( BallCuppedEvent eventArgs )
+    {
+		if (!eventArgs.Client.IsValid() || eventArgs.Client.IsProxy)
+			return;
+
+		await GameTask.DelaySeconds(0.5f);
+		Panel.AddChild(new ParScreenEntry(){ Hole = eventArgs.HoleInfo.HoleNumber, Par = eventArgs.HoleInfo.Par, Strokes = eventArgs.Score });
+	}
+}
