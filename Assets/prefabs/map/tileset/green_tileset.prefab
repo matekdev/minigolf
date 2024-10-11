@@ -1,0 +1,1738 @@
+{
+  "RootObject": {
+    "__guid": "8039f6c0-cba3-4868-b951-5dc4a78a1c47",
+    "Flags": 0,
+    "Name": "green_tileset",
+    "Enabled": true,
+    "Children": [
+      {
+        "__guid": "032603cf-a65a-45db-b475-0ee903f5a106",
+        "Flags": 0,
+        "Name": "GolfCourse\u002Bgolf_course",
+        "Position": "-2013.365,478.9391,1446.41",
+        "Tags": "group",
+        "Enabled": true,
+        "Children": [
+          {
+            "__guid": "36d8cb95-a158-49f5-a302-f6753aa2dc5c",
+            "Flags": 0,
+            "Name": "block",
+            "Position": "2269.365,-478.9391,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "3a8b3cfc-271f-498a-8806-71b5552fb893",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/block.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "9c3d5144-ad5d-4bd1-ab20-b6e5c3158cc6",
+                "IsTrigger": false,
+                "Model": "models/tileset/block.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "5f063b08-a523-4a09-8588-0b88ae16a90e",
+            "Flags": 0,
+            "Name": "bump",
+            "Position": "2269.365,-606.9391,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "80dd5ec7-4caa-4121-95ce-489ce5f39fd2",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/bump.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "7a3bdcb1-5688-4b39-8559-1b502cf5bb5c",
+                "IsTrigger": false,
+                "Model": "models/tileset/bump.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "21ea343a-0a82-4990-9f61-6919e9c1d155",
+            "Flags": 0,
+            "Name": "bump-down",
+            "Position": "2269.365,-734.9391,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "88b05e4d-405b-4703-be2e-a1aad3285ce9",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/bump-down.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "61623d2c-898c-4810-a73c-8b47b48b3542",
+                "IsTrigger": false,
+                "Model": "models/tileset/bump-down.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "d6e3c966-77d9-4c77-a62b-d46a3fa76b47",
+            "Flags": 0,
+            "Name": "bump-down-walls",
+            "Position": "2269.365,-862.9391,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "2f336824-2fa6-4170-b0c9-bea9a612b87c",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/bump-down-walls.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "5346e727-6475-46c7-a22e-f328da2841c5",
+                "IsTrigger": false,
+                "Model": "models/tileset/bump-down-walls.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "616ddf20-305c-400c-9f74-2723ee120c0b",
+            "Flags": 0,
+            "Name": "bump-walls",
+            "Position": "2269.365,-990.9391,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "16d72f60-690a-410d-bc23-9858d960cca2",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/bump-walls.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "6f472c5d-1ea7-4ed4-aee1-c050cacb7df4",
+                "IsTrigger": false,
+                "Model": "models/tileset/bump-walls.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "a8332298-6992-42fc-b45b-604b303a5b22",
+            "Flags": 0,
+            "Name": "castle",
+            "Position": "2269.365,-1118.939,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "bda84655-d2ab-4c2c-82cf-461994ab0b9e",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/castle.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "e9fb5e98-db86-453c-bd45-322c6fcf2905",
+                "IsTrigger": false,
+                "Model": "models/tileset/castle.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "61950acd-a79f-4d7a-9680-5b052b40be3e",
+            "Flags": 0,
+            "Name": "corner",
+            "Position": "2269.365,-1246.939,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "7bed2b8c-d00a-4553-98ef-60cfa3f4f77e",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/corner.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "bd12a89b-dc9f-49e5-af1d-7e6f679e0b96",
+                "IsTrigger": false,
+                "Model": "models/tileset/corner.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "bfa5e8a6-dc1b-4735-b5ed-1c3acefe083f",
+            "Flags": 0,
+            "Name": "crest",
+            "Position": "2269.365,-1374.939,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "32f69d55-7c51-4165-b313-ab947dca4444",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/crest.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "9f270e07-98be-4b49-82de-5b7b18c636bc",
+                "IsTrigger": false,
+                "Model": "models/tileset/crest.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "7dca681e-8a9b-4ee0-b34f-cf3fbbd97587",
+            "Flags": 0,
+            "Name": "end",
+            "Position": "2269.365,-350.9391,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "a3c8c06f-6169-4c26-8647-a9b4cfe24bd6",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/end.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "777bf161-9d69-416a-9aa8-592ccb7d9e43",
+                "IsTrigger": false,
+                "Model": "models/tileset/end.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "52f8add2-960b-4c02-86b3-35ea446ab9b8",
+            "Flags": 0,
+            "Name": "gap",
+            "Position": "2269.365,-222.9391,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "5d4365b7-b921-4dfe-960e-290af5f10473",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/gap.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "f7b52d94-855f-49da-98f2-9073158d2ad0",
+                "IsTrigger": false,
+                "Model": "models/tileset/gap.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "4a72a1c1-abe0-46be-8cb2-a1019e50cc12",
+            "Flags": 0,
+            "Name": "hill-corner",
+            "Position": "2269.365,-94.93906,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "536f609c-d69c-4928-9ade-3c6d76befd5d",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/hill-corner.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "0db6339d-28b9-4cf4-b1ce-24302cf8d548",
+                "IsTrigger": false,
+                "Model": "models/tileset/hill-corner.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "53a88db8-7631-4262-a362-8dfaa777b1ba",
+            "Flags": 0,
+            "Name": "hill-round",
+            "Position": "2269.365,33.06094,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "7b4538bf-b197-4f00-ad9f-bf2c4c777962",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/hill-round.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "0d2b9fc3-00a9-4ac3-93df-24147ac22cc0",
+                "IsTrigger": false,
+                "Model": "models/tileset/hill-round.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "b944195a-f5cf-4db1-bcda-f77f9820d037",
+            "Flags": 0,
+            "Name": "hill-square",
+            "Position": "2013.365,33.06094,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "86eff777-de4f-49b7-ae07-697e2c685b7d",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/hill-square.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "8c5cb988-8f87-4650-b84c-b22608a8394f",
+                "IsTrigger": false,
+                "Model": "models/tileset/hill-square.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "6c4831c9-d00a-4c63-882c-5df6838091d2",
+            "Flags": 0,
+            "Name": "hole-open",
+            "Position": "2013.365,-222.9391,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "9429a23d-2dd5-4acf-bb3a-68ebbe586c7a",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/hole-open.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "47535173-8227-4c7f-bd8a-0442343796c7",
+                "IsTrigger": false,
+                "Model": "models/tileset/hole-open.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "dd7571b8-b5f5-433d-8e8b-f0983dc73dea",
+            "Flags": 0,
+            "Name": "hole-round",
+            "Position": "2013.365,-350.9391,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "ad0b5dcf-6f98-4caf-9a0c-fd98dc3cefc0",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/hole-round.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "41e7576a-c061-4713-a763-58829336beae",
+                "IsTrigger": false,
+                "Model": "models/tileset/hole-round.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "7d77c150-b53a-432b-9625-8e402b86ecb1",
+            "Flags": 0,
+            "Name": "hole-square",
+            "Position": "2013.365,-478.9391,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "c6df877e-6b5e-4ff6-9bca-ff4e50f53b67",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/hole-square.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "1851fd5b-128e-4900-97fb-a28c876495ae",
+                "IsTrigger": false,
+                "Model": "models/tileset/hole-square.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "cdf43bfa-400f-432b-ac4b-a92432280940",
+            "Flags": 0,
+            "Name": "inner-corner",
+            "Position": "2013.365,-606.9391,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "4f4df545-c385-480f-8a14-cb51590220e8",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/inner-corner.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "a73d6d11-6cdf-443c-bd1f-babf9122e23f",
+                "IsTrigger": false,
+                "Model": "models/tileset/inner-corner.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "a8db4645-7830-4ae0-b1ef-b295d894b996",
+            "Flags": 0,
+            "Name": "narrow-block",
+            "Position": "2013.365,-734.9391,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "ff240f1a-5797-4b23-bb69-abac9bab29de",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/narrow-block.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "bfaf7c85-88e9-4dbf-b2f7-5eba0e0d7dbc",
+                "IsTrigger": false,
+                "Model": "models/tileset/narrow-block.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "834bf902-399a-4ef9-9738-aa91fa68e81d",
+            "Flags": 0,
+            "Name": "narrow-round",
+            "Position": "2013.365,-862.9391,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "c1c15290-f113-4ee5-9459-5b25d4b52d9e",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/narrow-round.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "3a276c1a-2fc6-44b0-8b3a-0f83315d97d3",
+                "IsTrigger": false,
+                "Model": "models/tileset/narrow-round.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "2ddefc66-8f1f-4b3f-854e-1ac9894291bf",
+            "Flags": 0,
+            "Name": "narrow-square",
+            "Position": "2013.365,-990.9391,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "75506e0d-5c7d-4741-a5d4-ea97ca0e0d36",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/narrow-square.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "13155ad6-9b2c-441a-8b40-f4e545e560bf",
+                "IsTrigger": false,
+                "Model": "models/tileset/narrow-square.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "f3a3a34c-9e37-42fa-8d6a-f87f7a2c1219",
+            "Flags": 0,
+            "Name": "obstacle-block",
+            "Position": "2013.365,-1118.939,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "ff83e7a9-f8a7-4f1e-be16-3e529ac0663e",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/obstacle-block.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "da84afe0-aceb-47b9-b405-1ae3f1a01db0",
+                "IsTrigger": false,
+                "Model": "models/tileset/obstacle-block.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "8c41392e-413d-4591-8865-34f4f972de68",
+            "Flags": 0,
+            "Name": "obstacle-diamond",
+            "Position": "2013.365,-1246.939,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "6e55c45e-8ce1-4a49-a114-f276f42d3558",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/obstacle-diamond.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "a41f787d-c663-4d0f-bf22-73227739daeb",
+                "IsTrigger": false,
+                "Model": "models/tileset/obstacle-diamond.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "ecd5689b-2f92-4a01-9e81-dd9a29c839ff",
+            "Flags": 0,
+            "Name": "obstacle-triangle",
+            "Position": "2013.365,-1374.939,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "ae5075c0-2838-47ca-9af3-342f618af13c",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/obstacle-triangle.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "20fe9d89-8b88-42ba-ab21-496c45b06227",
+                "IsTrigger": false,
+                "Model": "models/tileset/obstacle-triangle.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "d247bdb4-9bd5-4d0e-9232-69276b5c607e",
+            "Flags": 0,
+            "Name": "open",
+            "Position": "1757.365,33.06094,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "dbdbecec-f815-4e22-8c69-26a121d579b1",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/open.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "2b31a1be-d260-4621-9bec-f02c4d56b439",
+                "IsTrigger": false,
+                "Model": "models/tileset/open.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "96e32cd1-be8f-4a3e-98dd-1aeebd28b918",
+            "Flags": 0,
+            "Name": "ramp",
+            "Position": "1757.365,-94.93906,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "f1a2b172-f192-4010-a56f-9f14b6e438f4",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/ramp.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "52b4f506-12ef-464b-8869-d57b060a65fb",
+                "IsTrigger": false,
+                "Model": "models/tileset/ramp.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "f420167e-0f2f-4343-a61d-ebb2497d8ad6",
+            "Flags": 0,
+            "Name": "ramp-a",
+            "Position": "1757.365,-222.9391,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "443f93a6-88c0-4979-8037-edd1c3040c93",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/ramp-a.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "9bcc078d-9a2d-44a4-a95a-9035bf74d1e1",
+                "IsTrigger": false,
+                "Model": "models/tileset/ramp-a.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "2fdbae4f-bdc8-4c10-bdc7-9dab3be1c689",
+            "Flags": 0,
+            "Name": "ramp-b",
+            "Position": "1757.365,-350.9391,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "4d84a53c-ec48-4395-8005-1d32f6ef3f8e",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/ramp-b.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "128df864-e41c-4b05-a0bd-d30166a619e7",
+                "IsTrigger": false,
+                "Model": "models/tileset/ramp-b.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "4705e659-3970-4e40-89a7-16fd929ca479",
+            "Flags": 0,
+            "Name": "ramp-c",
+            "Position": "1757.365,-478.9391,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "15ffd95e-ea3e-4937-be6b-b4a283a608e0",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/ramp-c.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "e33d13c9-81e6-45cb-9d18-fb17f7151403",
+                "IsTrigger": false,
+                "Model": "models/tileset/ramp-c.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "65bd0c74-e97d-4a25-ae35-d1e59283ea7e",
+            "Flags": 0,
+            "Name": "ramp-d",
+            "Position": "1757.365,-606.9391,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "7d504cbe-1bce-4884-99a7-ff2eda7fd359",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/ramp-d.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "613c1c6e-b18c-484d-8880-38ceeb57e2f0",
+                "IsTrigger": false,
+                "Model": "models/tileset/ramp-d.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "0726cb5c-9825-4124-93ec-74b89d0ccf74",
+            "Flags": 0,
+            "Name": "ramp-large",
+            "Position": "1757.365,-734.9391,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "950b3d9a-78a3-484e-a188-5cd6feb0fe74",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/ramp-large.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "20c6c566-4daa-4059-a4d4-b5c33bd63df8",
+                "IsTrigger": false,
+                "Model": "models/tileset/ramp-large.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "7cb410d6-1fb1-49ce-9b9d-032e6dbe4d36",
+            "Flags": 0,
+            "Name": "ramp-large-side",
+            "Position": "1757.365,-862.9391,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "f5f44852-a013-4d3c-b305-2c9aafd1aa9b",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/ramp-large-side.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "8f20a6f5-ffdd-4292-8fa7-5e36d225c14c",
+                "IsTrigger": false,
+                "Model": "models/tileset/ramp-large-side.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "d73f1242-9071-447e-90f2-685f336c95c4",
+            "Flags": 0,
+            "Name": "ramp-sharp",
+            "Position": "1757.365,-990.9391,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "5ac14268-9b28-4a97-bfe6-25075c9b81a3",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/ramp-sharp.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "9c85136b-f5d7-45a8-b122-6aea201db6a7",
+                "IsTrigger": false,
+                "Model": "models/tileset/ramp-sharp.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "eeaae2fa-5557-4f01-bc12-cdc332354494",
+            "Flags": 0,
+            "Name": "ramp-side",
+            "Position": "1757.365,-1118.939,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "a265d709-cee5-4c46-8fef-1785f8c3a474",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/ramp-side.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "8cd64bc1-b42a-49d0-bba0-5498a6a04e82",
+                "IsTrigger": false,
+                "Model": "models/tileset/ramp-side.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "972bad08-0d05-4ecc-bf51-134f4e0a5dfa",
+            "Flags": 0,
+            "Name": "ramp-square",
+            "Position": "1757.365,-1246.939,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "631b3d14-f60f-488e-95be-1f69ec6a8289",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/ramp-square.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "c2b5b031-a972-4f70-bded-a414d67de81a",
+                "IsTrigger": false,
+                "Model": "models/tileset/ramp-square.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "fb713181-207a-419f-9036-bb8ae10641a8",
+            "Flags": 0,
+            "Name": "round-corner-a",
+            "Position": "1757.365,-1374.939,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "ce7d5cc4-d90c-4b90-a0c7-df7d07f99114",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/round-corner-a.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "073130d7-af53-4e89-a1dc-84db6383fb26",
+                "IsTrigger": false,
+                "Model": "models/tileset/round-corner-a.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "5ed2760d-e8aa-4f8d-8a66-966dc72faa18",
+            "Flags": 0,
+            "Name": "round-corner-b",
+            "Position": "1501.365,33.06094,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "9c0fe845-8379-4bd7-b0ee-e65604851703",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/round-corner-b.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "665ca71e-1ccd-40fd-9bc4-d2191ba4660e",
+                "IsTrigger": false,
+                "Model": "models/tileset/round-corner-b.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "53e00e19-9764-4371-bd9d-6779899e6c15",
+            "Flags": 0,
+            "Name": "round-corner-c",
+            "Position": "1501.365,-94.93906,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "03df1089-353c-42dc-bdc2-1febc08046b7",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/round-corner-c.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "5304ba4d-b0b5-4686-8bb5-09c9df5695b3",
+                "IsTrigger": false,
+                "Model": "models/tileset/round-corner-c.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "c0d7fa1a-23f9-426f-b886-3512ec8b6b80",
+            "Flags": 0,
+            "Name": "round-large-corner",
+            "Position": "1629.365,289.0609,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "20762d41-27d3-42b1-a09d-72631bf15bd2",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/round-large-corner.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "9b972175-39b9-4b7f-9f01-c856d81c3f27",
+                "IsTrigger": false,
+                "Model": "models/tileset/round-large-corner.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "be73d860-2920-4134-937b-0958d56043f9",
+            "Flags": 0,
+            "Name": "round-large-corner-open",
+            "Position": "2013.365,289.0609,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "aaa40eed-0fb9-4313-8496-a55fce402825",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/round-large-corner-open.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "9a44f3b6-0bb5-45bf-9b57-ec086f7f83da",
+                "IsTrigger": false,
+                "Model": "models/tileset/round-large-corner-open.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "2550b064-294f-43f6-8215-ac53f3dc7ef7",
+            "Flags": 0,
+            "Name": "side",
+            "Position": "1501.365,-350.9391,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "5e8cc879-777a-40f0-a698-98b77bdbacc7",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/side.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "b13a0d8b-5571-49ee-a34f-9d70da4a916d",
+                "IsTrigger": false,
+                "Model": "models/tileset/side.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "f59603ca-a44d-49ce-a730-2aa3ebec6962",
+            "Flags": 0,
+            "Name": "skew-corner",
+            "Position": "1501.365,-478.9391,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "96c246c9-720b-4f17-a4a4-b08a141b4b5e",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/skew-corner.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "3af00f3e-c017-4da4-bf03-53d2b9929f93",
+                "IsTrigger": false,
+                "Model": "models/tileset/skew-corner.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "96ad4830-4dff-4944-8a07-3ca05c0a4b5f",
+            "Flags": 0,
+            "Name": "skew-large-corner",
+            "Position": "1629.365,545.0609,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "509993bd-dc4c-4208-b011-7fb7fd746972",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/skew-large-corner.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "95c548c3-26a8-4872-a831-2c65952590a1",
+                "IsTrigger": false,
+                "Model": "models/tileset/skew-large-corner.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "1fb76826-745e-4ece-a832-804357bcc331",
+            "Flags": 0,
+            "Name": "skew-large-corner-open",
+            "Position": "2013.365,545.0609,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "6d074470-ecfe-4760-848c-acb631262e01",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/skew-large-corner-open.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "c8b75ca6-3aff-4ae3-8c9e-519cf990f95d",
+                "IsTrigger": false,
+                "Model": "models/tileset/skew-large-corner-open.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "cc234ad5-9535-4094-841d-f17756351f52",
+            "Flags": 0,
+            "Name": "split",
+            "Position": "1501.365,-606.9391,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "da22a72c-60d1-4483-a0bd-62f075bbeca9",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/split.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "cf3a300d-5a3b-472a-ac43-1cac8fed26cd",
+                "IsTrigger": false,
+                "Model": "models/tileset/split.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "7261fc0b-feae-4783-bca3-502e9f046136",
+            "Flags": 0,
+            "Name": "split-start",
+            "Position": "1501.365,-734.9391,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "8832570e-513b-4943-95af-696510f11783",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/split-start.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "0048dab1-f921-4854-a7a0-9abc8e7c455b",
+                "IsTrigger": false,
+                "Model": "models/tileset/split-start.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "1f66feec-cd8c-48bd-8d78-0b2242e64355",
+            "Flags": 0,
+            "Name": "split-t",
+            "Position": "1501.365,-862.9391,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "28ab10f5-4791-4bd1-91ec-de7a9caa0677",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/split-t.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "035c6dd5-3d0e-470d-ac85-059e80f12e06",
+                "IsTrigger": false,
+                "Model": "models/tileset/split-t.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "0db53e41-33eb-4978-a140-4dabaae4316f",
+            "Flags": 0,
+            "Name": "split-walls-to-open",
+            "Position": "1501.365,-990.9391,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "39592f90-bdad-4cfa-a7b0-d6c84af9377b",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/split-walls-to-open.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "56a4a6b9-2c17-4449-89d1-46c68d3ac498",
+                "IsTrigger": false,
+                "Model": "models/tileset/split-walls-to-open.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "3d66492c-145c-44c3-b295-ac9865686705",
+            "Flags": 0,
+            "Name": "square-corner-a",
+            "Position": "1501.365,-1118.939,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "a1f967fe-2fd5-4745-86e9-b0b6eb2b09bd",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/square-corner-a.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "4c02ca65-8d2d-48bd-ba86-ababd6b7d4bc",
+                "IsTrigger": false,
+                "Model": "models/tileset/square-corner-a.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "5f79b1b9-93c0-4d63-af56-a0f6bddb567e",
+            "Flags": 0,
+            "Name": "start",
+            "Position": "1501.365,-1246.939,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "322915e8-89bc-4799-84ad-0179ab7a070d",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/start.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "c38992b1-9a30-45b3-b618-82f637b2f4d4",
+                "IsTrigger": false,
+                "Model": "models/tileset/start.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "e6d8d3f6-7fbc-4eec-b081-7c336c7038a7",
+            "Flags": 0,
+            "Name": "straight",
+            "Position": "1501.365,-1374.939,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "3b4ba01c-d013-4ea0-9d48-841bbd634e6f",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/straight.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "bf04e30a-8846-45a3-973e-0faa5826879f",
+                "IsTrigger": false,
+                "Model": "models/tileset/straight.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "f36bbef1-ea65-47e4-b8aa-0ca87cabed22",
+            "Flags": 0,
+            "Name": "tunnel-double",
+            "Position": "1245.365,-222.9391,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "71879cad-0a8f-402e-a763-1670e08ba53b",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/tunnel-double.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "431873f0-7e8b-4d6f-8c4c-d219e100379d",
+                "IsTrigger": false,
+                "Model": "models/tileset/tunnel-double.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "c99c9dfb-be83-4a48-b10f-252d03563eb0",
+            "Flags": 0,
+            "Name": "tunnel-narrow",
+            "Position": "1245.365,-350.9391,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "63b15971-64b9-4420-94ea-09443bf031d6",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/tunnel-narrow.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "4800c87f-2e26-411e-ace3-c6742b09bc71",
+                "IsTrigger": false,
+                "Model": "models/tileset/tunnel-narrow.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "2064abd4-b64d-445a-b5b8-4732173fa1f9",
+            "Flags": 0,
+            "Name": "tunnel-wide",
+            "Position": "1245.365,-478.9391,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "b09f00b7-153d-4a89-8082-91dd0ee7dee2",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/tunnel-wide.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "189d7442-2a21-47d9-8029-1ba7c66bdad0",
+                "IsTrigger": false,
+                "Model": "models/tileset/tunnel-wide.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "9634fee6-be7e-4692-b46c-e662bde9e871",
+            "Flags": 0,
+            "Name": "wall-left",
+            "Position": "1245.365,-606.9391,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "27d9fca8-7125-4e96-bca3-633c2fd49415",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/wall-left.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "faaaff07-1e00-40c5-a6b9-9b5b9b2dc5be",
+                "IsTrigger": false,
+                "Model": "models/tileset/wall-left.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "5e0ca3a9-6307-40a9-b36d-248fa7f6e055",
+            "Flags": 0,
+            "Name": "wall-right",
+            "Position": "1245.365,-734.9391,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "a7d734ac-8d1a-41a6-a625-80c2f4c9c8b5",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/wall-right.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "8391b143-eb85-465d-bc3b-70ccbefc1c36",
+                "IsTrigger": false,
+                "Model": "models/tileset/wall-right.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "e08c4adb-db3e-4fe7-b3be-19aa4b20a74a",
+            "Flags": 0,
+            "Name": "walls-to-open",
+            "Position": "1245.365,-862.9391,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "fe4d2218-feff-4a4a-afd1-4c6b2418daf0",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/walls-to-open.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "6438f214-b400-4361-8c5c-5ce3c1d9bfc5",
+                "IsTrigger": false,
+                "Model": "models/tileset/walls-to-open.vmdl",
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "44441739-a1b1-4809-af72-ed0ee91217b3",
+            "Flags": 0,
+            "Name": "windmill",
+            "Position": "1245.365,-990.9391,-1445.91",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "2da164eb-0824-4b1f-b75e-7dfa471395d0",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/tileset/windmill.vmdl",
+                "RenderOptions": {
+                  "GameLayer": true,
+                  "OverlayLayer": false,
+                  "BloomLayer": false,
+                  "AfterUILayer": false
+                },
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              },
+              {
+                "__type": "Sandbox.ModelCollider",
+                "__guid": "653385a7-dd7b-40dc-b9fa-1f6f1c8e3e2a",
+                "IsTrigger": false,
+                "Model": "models/tileset/windmill.vmdl",
+                "Static": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}
