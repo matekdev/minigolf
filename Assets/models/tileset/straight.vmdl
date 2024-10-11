@@ -36,7 +36,6 @@
 							exclude_by_default = true
 							exception_list = 
 							[
-								"Scene",
 								"straight",
 							]
 						}
