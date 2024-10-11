@@ -14,7 +14,7 @@ public partial class GolfBall
 
 	private void Move()
 	{
-		var mover = new MoveHelper( Transform.Position, Velocity );
+		var mover = new MoveHelper( WorldPosition, Velocity );
 		mover.Trace = Scene.Trace.Radius( 1.5f ).IgnoreGameObject( GameObject );
 		mover.MaxStandableAngle = 50.0f;
 		mover.GroundBounce = 0.25f; // TODO: Get from ground surface?
@@ -58,7 +58,7 @@ public partial class GolfBall
 			mover.ApplyFriction( 0.5f, Time.Delta );
 		}
 
-		Transform.Position = mover.Position;
+		WorldPosition = mover.Position;
 		BaseVelocity = mover.GroundVelocity;
 		Velocity = mover.Velocity;
 

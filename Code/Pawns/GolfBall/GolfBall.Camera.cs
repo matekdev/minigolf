@@ -15,11 +15,11 @@ public partial class GolfBall
 	private void CameraUpdate()
 	{
 		TargetRotation = Rotation.From( EyeAngles );
-		Camera.Transform.Rotation = Rotation.Slerp( Camera.Transform.Rotation, TargetRotation, RealTime.Delta * 10.0f );
+		Camera.WorldRotation = Rotation.Slerp( Camera.WorldRotation, TargetRotation, RealTime.Delta * 10.0f );
 
-		Camera.Transform.Position = Transform.Position + Vector3.Up * 10;
+		Camera.WorldPosition = WorldPosition + Vector3.Up * 10;
 		TargetDistance = TargetDistance.LerpTo( CurrentDistance, RealTime.Delta * 5.0f );
-		Camera.Transform.Position += Camera.Transform.Rotation.Backward * TargetDistance;
+		Camera.WorldPosition += Camera.WorldRotation.Backward * TargetDistance;
 
 		CurrentDistance = Math.Clamp( CurrentDistance + -Input.MouseWheel.y * DISTANCE_STEP, MIN_DISTANCE, MAX_DISTANCE );
 		EyeAngles = EyeAngles with { yaw = EyeAngles.yaw + Input.AnalogLook.yaw };

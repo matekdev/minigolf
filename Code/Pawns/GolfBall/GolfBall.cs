@@ -23,7 +23,7 @@ public partial class GolfBall : Pawn
 	public void Respawn( HoleInfo holeInfo )
 	{
 		Transform.ClearInterpolation();
-		Transform.Position = holeInfo.SpawnPosition;
+		WorldPosition = holeInfo.SpawnPosition;
 		EyeAngles = holeInfo.SpawnAngle;
 	}
 
@@ -34,7 +34,7 @@ public partial class GolfBall : Pawn
 		if ( !Owner.IsValid() ) // this shouldn't ever not be the case...
 			return;
 
-		var pos = Camera.Transform.Position;
+		var pos = Camera.WorldPosition;
 		var rot = EyeAngles;
 
 		var pawn = Owner.AssignPawn<HoleOrbitCamera>();

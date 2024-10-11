@@ -33,9 +33,9 @@ public partial class GolfBall
 		if ( !PowerArrow.IsValid() )
 			PowerArrow = new( Game.ActiveScene.SceneWorld );
 
-		var direction = Angles.AngleVector( new Angles( 0, Camera.Transform.Rotation.Yaw(), 0 ) );
+		var direction = Angles.AngleVector( new Angles( 0, Camera.WorldRotation.Yaw(), 0 ) );
 		var ballRadius = 3f;
-		PowerArrow.Position = Transform.Position + Vector3.Down * ballRadius + Vector3.Up * 0.01f + direction * 5.0f;
+		PowerArrow.Position = WorldPosition + Vector3.Down * ballRadius + Vector3.Up * 0.01f + direction * 5.0f;
 		PowerArrow.Direction = direction;
 		PowerArrow.Power = ShotPower;
 	}
@@ -46,6 +46,6 @@ public partial class GolfBall
 		float rollRotation = -Velocity.y * Time.Delta * 20f;
 		var ballPitch = Rotation.FromPitch( pitchRotation );
 		var ballRoll = Rotation.FromRoll( rollRotation );
-		Renderer.Transform.Rotation = ballPitch * ballRoll * Renderer.Transform.Rotation;
+		Renderer.WorldRotation = ballPitch * ballRoll * Renderer.WorldRotation;
 	}
 }

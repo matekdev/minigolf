@@ -16,7 +16,7 @@ public static class GameObjectExtensions
 
 		if ( !obj.Network.Active )
 			obj.NetworkSpawn( owner );
-		else if ( GameNetworkSystem.IsActive && owner != null )
+		else if ( Networking.IsActive && owner != null )
 			obj.Network.AssignOwnership( owner );
 
 		obj.Network.SetOwnerTransfer( transfer );

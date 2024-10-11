@@ -132,11 +132,11 @@ public partial class GridMapTool : EditorTool
 
 		tileGroups.Add( "" );
 		groupDropDown.AddItem( "" );
-	
+
 		foreach ( var item in tileList )
 		{
 			//Add the groups to the dropdown
-			if ( !tileGroups.Contains( item.group ) && item.group != null)
+			if ( !tileGroups.Contains( item.group ) && item.group != null )
 			{
 				tileGroups.Add( item.group );
 				groupDropDown.AddItem( item.group );
@@ -253,8 +253,8 @@ public partial class GridMapTool : EditorTool
 			PrefabUtility.MakeGameObjectsUnique( randomTileJson );
 			go.Deserialize( randomTileJson );
 			go.Parent = CurrentGameObjectCollection;
-			go.Transform.Position = position;
-			go.Transform.Rotation = Rotation.FromPitch( -90 ) * rotation;
+			go.WorldPosition = position;
+			go.WorldRotation = Rotation.FromPitch( -90 ) * rotation;
 			go.Tags.Add( "gridtile" );
 
 			_prevFilled = false;
@@ -266,8 +266,8 @@ public partial class GridMapTool : EditorTool
 			go.Deserialize( SelectedJsonObject );
 			go.MakeNameUnique();
 			go.Parent = CurrentGameObjectCollection;
-			go.Transform.Position = position;
-			go.Transform.Rotation = Rotation.FromPitch( -90 ) * rotation;
+			go.WorldPosition = position;
+			go.WorldRotation = Rotation.FromPitch( -90 ) * rotation;
 			go.Tags.Add( "gridtile" );
 
 			_prevFilled = false;
@@ -285,15 +285,15 @@ public partial class GridMapTool : EditorTool
 		{
 			case GroundAxis.X:
 				planeNormal = Vector3.Forward; // Normal perpendicular to X-axis
-				planePoint = new Vector3( SnapToNearestFloor( groundHeight), 0, 0 ); // Point on the X-axis plane
+				planePoint = new Vector3( SnapToNearestFloor( groundHeight ), 0, 0 ); // Point on the X-axis plane
 				break;
 			case GroundAxis.Y:
 				planeNormal = Vector3.Left; // Normal perpendicular to Y-axis
-				planePoint = new Vector3( 0, SnapToNearestFloor( groundHeight), 0 ); // Point on the Y-axis plane
+				planePoint = new Vector3( 0, SnapToNearestFloor( groundHeight ), 0 ); // Point on the Y-axis plane
 				break;
 			default: // Z-axis
 				planeNormal = Vector3.Up; // Normal perpendicular to Z-axis
-				planePoint = new Vector3( 0, 0, SnapToNearestFloor( groundHeight) ); // Point on the Z-axis plane
+				planePoint = new Vector3( 0, 0, SnapToNearestFloor( groundHeight ) ); // Point on the Z-axis plane
 				break;
 		}
 
@@ -328,7 +328,7 @@ public partial class GridMapTool : EditorTool
 		return new SceneTraceResult { Hit = false };
 	}
 
-	private float SnapToNearestFloor( float value)
+	private float SnapToNearestFloor( float value )
 	{
 		// Snap to the nearest height value
 		return MathF.Floor( value / FloorHeight ) * FloorHeight;
@@ -337,7 +337,7 @@ public partial class GridMapTool : EditorTool
 
 	private float SnapToGrid( float value )
 	{
-		if( !ShouldSnapToGrid )
+		if ( !ShouldSnapToGrid )
 		{
 			return value;
 		}
@@ -351,7 +351,7 @@ public partial class GridMapTool : EditorTool
 	{
 		foreach ( var obj in Scene.GetAllObjects( false ) )
 		{
-			if ( selectionBox.Contains( obj.Transform.Position ) && obj.Tags.Has( "gridtile" ) && !SelectedGroupObjects.Contains(obj) )
+			if ( selectionBox.Contains( obj.WorldPosition ) && obj.Tags.Has( "gridtile" ) && !SelectedGroupObjects.Contains( obj ) )
 			{
 				SelectedGroupObjects.Add( obj );
 			}
@@ -369,7 +369,7 @@ public partial class GridMapTool : EditorTool
 			var gameObject = SceneUtility.GetPrefabScene( PrefabResourse ).Clone( new Transform( Vector3.Up * 100000 ) );
 			gameObject.BreakFromPrefab();
 			gameObject.Flags = GameObjectFlags.NotSaved | GameObjectFlags.Hidden | GameObjectFlags.Loading;
-			
+
 			var allObjects = gameObject.GetAllObjects( true );
 
 			bool isFirst = true;
@@ -382,73 +382,73 @@ public partial class GridMapTool : EditorTool
 					isFirst = false;
 					continue;
 				}
-					if ( !tileList.Any( x => x.name == obj.Name ) && !obj.Tags.Has( "ignore" ) && !obj.IsAncestor( lastFoundObject) )
+				if ( !tileList.Any( x => x.name == obj.Name ) && !obj.Tags.Has( "ignore" ) && !obj.IsAncestor( lastFoundObject ) )
+				{
+					if ( !obj.Tags.Has( "random" ) && obj.Tags.Has( "group" ) && obj.Components.Get<ModelRenderer>( FindMode.EverythingInSelf ) != null )
 					{
-						if ( !obj.Tags.Has( "random" ) && obj.Tags.Has( "group" ) && obj.Components.Get<ModelRenderer>( FindMode.EverythingInSelf ) != null )
+						lastFoundObject = obj;
+						tileList.Add( new TileList()
 						{
-							lastFoundObject = obj;
-							tileList.Add( new TileList()
-							{
-								name = obj.Name,
-								group = obj.Parent.Name,
-								jsonObject = obj.Serialize(),
-								isPrefab = obj.IsPrefabInstance,
-								icon = AssetSystem.FindByPath( obj.Components.Get<ModelRenderer>( FindMode.EnabledInSelfAndChildren ).Model.ResourcePath ).GetAssetThumb()
-							} ); 
-							//Log.Info( obj.Parent.Name );
-						}
-						else if ( !obj.Tags.Has( "random" ) && obj.Tags.Has( "decal" ) && obj.Components.Get<DecalRenderer>( FindMode.EnabledInSelf ) != null )
+							name = obj.Name,
+							group = obj.Parent.Name,
+							jsonObject = obj.Serialize(),
+							isPrefab = obj.IsPrefabInstance,
+							icon = AssetSystem.FindByPath( obj.Components.Get<ModelRenderer>( FindMode.EnabledInSelfAndChildren ).Model.ResourcePath ).GetAssetThumb()
+						} );
+						//Log.Info( obj.Parent.Name );
+					}
+					else if ( !obj.Tags.Has( "random" ) && obj.Tags.Has( "decal" ) && obj.Components.Get<DecalRenderer>( FindMode.EnabledInSelf ) != null )
+					{
+						lastFoundObject = obj;
+						tileList.Add( new TileList()
 						{
-							lastFoundObject = obj;
-							tileList.Add( new TileList()
-							{
-								name = obj.Name,
-								jsonObject = obj.Serialize(),
-								isPrefab = obj.IsPrefabInstance,
-								icon = AssetSystem.FindByPath( obj.Components.Get<DecalRenderer>( FindMode.EnabledInSelfAndChildren ).Material.ResourcePath ).GetAssetThumb(),
-								isDecal = true
-							} );
-							//Log.Info( obj.Components.Get<ModelRenderer>( FindMode.EnabledInSelfAndChildren ).Model );
-						}
-						else if ( !obj.Tags.Has( "random" ) && !obj.Tags.Has( "group" ) && obj.Components.Get<ModelRenderer>( FindMode.EnabledInSelf ) != null )
+							name = obj.Name,
+							jsonObject = obj.Serialize(),
+							isPrefab = obj.IsPrefabInstance,
+							icon = AssetSystem.FindByPath( obj.Components.Get<DecalRenderer>( FindMode.EnabledInSelfAndChildren ).Material.ResourcePath ).GetAssetThumb(),
+							isDecal = true
+						} );
+						//Log.Info( obj.Components.Get<ModelRenderer>( FindMode.EnabledInSelfAndChildren ).Model );
+					}
+					else if ( !obj.Tags.Has( "random" ) && !obj.Tags.Has( "group" ) && obj.Components.Get<ModelRenderer>( FindMode.EnabledInSelf ) != null )
+					{
+						lastFoundObject = obj;
+						tileList.Add( new TileList()
 						{
-							lastFoundObject = obj;
-							tileList.Add( new TileList()
-							{
-								name = obj.Name,
-								jsonObject = obj.Serialize(),
-								isPrefab = obj.IsPrefabInstance,
-								icon = AssetSystem.FindByPath( obj.Components.Get<ModelRenderer>( FindMode.EnabledInSelfAndChildren ).Model.ResourcePath ).GetAssetThumb()
-							} );
+							name = obj.Name,
+							jsonObject = obj.Serialize(),
+							isPrefab = obj.IsPrefabInstance,
+							icon = AssetSystem.FindByPath( obj.Components.Get<ModelRenderer>( FindMode.EnabledInSelfAndChildren ).Model.ResourcePath ).GetAssetThumb()
+						} );
 
-							//Log.Info( obj.Components.Get<ModelRenderer>( FindMode.EnabledInSelfAndChildren ).Model );
-						}
-						else if ( obj.Tags.Has( "random" ) && !obj.Tags.Has( "group" ) )
+						//Log.Info( obj.Components.Get<ModelRenderer>( FindMode.EnabledInSelfAndChildren ).Model );
+					}
+					else if ( obj.Tags.Has( "random" ) && !obj.Tags.Has( "group" ) )
+					{
+						lastFoundObject = obj;
+
+						var randList = new List<JsonObject>();
+
+						foreach ( var randobj in obj.Children )
 						{
-							lastFoundObject = obj;
-
-							var randList = new List<JsonObject>();
-
-							foreach ( var randobj in obj.Children )
-							{
-								randList.Add( randobj.Serialize() );
-								//Log.Info( randobj.Name );
-							}
-
-							tileList.Add (new TileList()
-							{
-								name = obj.Name,
-								//group = obj.Parent.Name,
-								//jsonObject = obj.Serialize(),
-								icon = AssetSystem.FindByPath( obj.Components.Get<ModelRenderer>( FindMode.EnabledInSelfAndChildren ).Model.ResourcePath ).GetAssetThumb(),
-								isRandom = true,
-								isPrefab = obj.IsPrefabInstance,
-								ranomObjectList = new (randList)
-							});
-
-							//Log.Info( randList.FirstOrDefault().ToString() );
+							randList.Add( randobj.Serialize() );
+							//Log.Info( randobj.Name );
 						}
-						//await Task.Delay( 10 );
+
+						tileList.Add( new TileList()
+						{
+							name = obj.Name,
+							//group = obj.Parent.Name,
+							//jsonObject = obj.Serialize(),
+							icon = AssetSystem.FindByPath( obj.Components.Get<ModelRenderer>( FindMode.EnabledInSelfAndChildren ).Model.ResourcePath ).GetAssetThumb(),
+							isRandom = true,
+							isPrefab = obj.IsPrefabInstance,
+							ranomObjectList = new( randList )
+						} );
+
+						//Log.Info( randList.FirstOrDefault().ToString() );
+					}
+					//await Task.Delay( 10 );
 
 				}
 			}
@@ -472,7 +472,7 @@ public partial class GridMapTool : EditorTool
 
 		gizmowidg.Update();
 
-		if ( PrefabResourse is not null && tileList is not null)
+		if ( PrefabResourse is not null && tileList is not null )
 		{
 			if ( PrefabResourse.ResourceName.Contains( "_tileset" ) )
 			{
@@ -480,7 +480,7 @@ public partial class GridMapTool : EditorTool
 				loadscene = true;
 			}
 		}
-				
+
 		if ( GameObjectCollection is not null && PrefabResourse is not null )
 		{
 			CurrentGameObjectCollection = GameObjectCollection.FirstOrDefault( x => x.Name == collectionDropDown.CurrentText );
@@ -490,7 +490,7 @@ public partial class GridMapTool : EditorTool
 				timeSinceChangedCollection = 0;
 			};
 		}
-		
+
 		if ( PrefabResourse != oldresource )
 		{
 			Log.Info( "Resource Changed" );
@@ -523,7 +523,7 @@ public partial class GridMapTool : EditorTool
 
 			boxtr = ProjectRayOntoGroundPlane( rayOrigin, rayDirection, 0 );
 		}
-		
+
 		GroundGizmo( cursorRay );
 
 		HandleRotation();
@@ -607,23 +607,23 @@ public partial class GridMapTool : EditorTool
 					DuplicateObjectCollection.Add( new DuplicatedItems()
 					{
 						gameObject = obj,
-						position = obj.Transform.Position,
-						rotation = obj.Transform.Rotation
+						position = obj.WorldPosition,
+						rotation = obj.WorldRotation
 					} );
 				}
-				
+
 				EndGameObjectGizmo();
 
 				CurrentPaintMode = PaintMode.Duplicate;
 			}
 			if ( CurrentPaintMode == PaintMode.Duplicate && DuplicateObjectCollection != null )
 			{
-				HandleDuplicate(tr ,cursorRay );
+				HandleDuplicate( tr, cursorRay );
 			}
-			
-			if( Gizmo.WasLeftMousePressed && CurrentPaintMode == PaintMode.Duplicate )
+
+			if ( Gizmo.WasLeftMousePressed && CurrentPaintMode == PaintMode.Duplicate )
 			{
-				HandlePlaceDuplicatedGroup(  tr, cursorRay );
+				HandlePlaceDuplicatedGroup( tr, cursorRay );
 			}
 
 			if ( Application.IsKeyDown( KeyCode.Z ) )
@@ -689,7 +689,7 @@ public partial class GridMapTool : EditorTool
 			endSelectionPoint = Vector3.Zero;
 
 			selectedamount.Text = $"Selected: {SelectedGroupObjects.Count}";
-			
+
 			EndDuplicateGizmo();
 		}
 
@@ -758,7 +758,7 @@ public partial class GridMapTool : EditorTool
 	}
 
 	void SetSelection( object o )
-	{	
+	{
 		if ( o is JsonObject s )
 		{
 			SelectedJsonObject = s;
@@ -768,8 +768,8 @@ public partial class GridMapTool : EditorTool
 	}
 	private Action DoRotation( bool leftright, GroundAxis axis )
 	{
-		beenRotated = true;	
-		
+		beenRotated = true;
+
 		float rotationIncrement = leftright ? rotationSnap : -rotationSnap;
 		return () =>
 		{
@@ -794,7 +794,7 @@ public partial class GridMapTool : EditorTool
 	{
 		var a = rotation.Angles();
 
-		switch (axis)
+		switch ( axis )
 		{
 			case GroundAxis.X:
 				a.pitch = a.pitch.SnapToGrid( rotationSnap );
@@ -810,8 +810,8 @@ public partial class GridMapTool : EditorTool
 	}
 
 
-	
-private Action DoFloors( int i )
+
+	private Action DoFloors( int i )
 	{
 		return () =>
 		{
@@ -831,7 +831,7 @@ private Action DoFloors( int i )
 	{
 		using var scope = SceneEditorSession.Scope();
 		var go = new GameObject( true, name );
-		go.Transform.Position = Vector3.Zero;
+		go.WorldPosition = Vector3.Zero;
 		go.Tags.Add( "collection" );
 
 		GameObjectCollection.Add( go );

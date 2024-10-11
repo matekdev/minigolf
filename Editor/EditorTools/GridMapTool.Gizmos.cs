@@ -31,9 +31,9 @@ public partial class GridMapTool
 		{
 			Gizmo.Draw.LineThickness = 2;
 
-			Gizmo.Draw.Color = Gizmo.Colors.Roll.WithAlpha(0.65f);
-			Gizmo.Draw.Line( Vector3.Up , Vector3.Up * 16384 );
-			Gizmo.Draw.Line( Vector3.Down , Vector3.Down * 16384 );
+			Gizmo.Draw.Color = Gizmo.Colors.Roll.WithAlpha( 0.65f );
+			Gizmo.Draw.Line( Vector3.Up, Vector3.Up * 16384 );
+			Gizmo.Draw.Line( Vector3.Down, Vector3.Down * 16384 );
 
 			Gizmo.Draw.Color = Gizmo.Colors.Yaw.WithAlpha( 0.65f );
 			Gizmo.Draw.Line( Vector3.Left, Vector3.Left * 16384 );
@@ -61,7 +61,7 @@ public partial class GridMapTool
 					// Z-axis is already set as default
 			}
 
-			using ( Gizmo.Scope( "Ground") )
+			using ( Gizmo.Scope( "Ground" ) )
 			{
 				var axiscolor = Gizmo.Colors.Up;
 				switch ( Axis )
@@ -74,7 +74,7 @@ public partial class GridMapTool
 						break;
 				}
 
-				Gizmo.Draw.Color = axiscolor.WithAlpha(0.25f);
+				Gizmo.Draw.Color = axiscolor.WithAlpha( 0.25f );
 
 				// Calculate the half size of the grid spacing
 				float halfGridSize = Gizmo.Settings.GridSpacing / 2.0f;
@@ -130,15 +130,15 @@ public partial class GridMapTool
 		*/
 		if ( CurrentPaintMode == PaintMode.Place )
 		{
-			PlaceGameObjectGizmo( tr, cursorRay );		
+			PlaceGameObjectGizmo( tr, cursorRay );
 		}
 
 		if ( CurrentPaintMode != PaintMode.Place )
 		{
-		//	EndGameObjectGizmo();
+			//	EndGameObjectGizmo();
 		}
 
-		if(CurrentPaintMode == PaintMode.Decal)
+		if ( CurrentPaintMode == PaintMode.Decal )
 		{
 			PlaceDecalObjectGizmo();
 		}
@@ -170,7 +170,7 @@ public partial class GridMapTool
 						.UsePhysicsWorld( false )
 						.WithTag( "gridtile" )
 						.Run();
-				
+
 				if ( tr2.Hit && SelectedObject is null )
 				{
 					Gizmo.Draw.Color = Theme.Blue.WithAlpha( 0.5f );
@@ -197,7 +197,7 @@ public partial class GridMapTool
 
 				if ( CopyObject is not null )
 				{
-					Gizmo.Transform = new Transform( GetGizmoPosition( tr2, cursorRay ), Rotation.FromPitch( -90 ) * rotation);
+					Gizmo.Transform = new Transform( GetGizmoPosition( tr2, cursorRay ), Rotation.FromPitch( -90 ) * rotation );
 					CopyGameObjectGizmo( tr, cursorRay );
 					Gizmo.Draw.Color = Color.Yellow.WithAlpha( 0.15f );
 					Gizmo.Draw.LineBBox( GizmoGameObject.GetBounds() );
@@ -233,8 +233,8 @@ public partial class GridMapTool
 
 		if ( GizmoGameObject is not null )
 		{
-			GizmoGameObject.Transform.Position = GetGizmoPosition( trace, cursorRay );
-			GizmoGameObject.Transform.Rotation = Rotation.FromPitch( -90 ) * rotation;
+			GizmoGameObject.WorldPosition = GetGizmoPosition( trace, cursorRay );
+			GizmoGameObject.WorldRotation = Rotation.FromPitch( -90 ) * rotation;
 			Log.Info( "GizmoGameObject is not null" );
 		}
 	}
@@ -250,30 +250,30 @@ public partial class GridMapTool
 			GizmoDuplicateObject.MakeNameUnique();
 			GizmoDuplicateObject.Flags = GameObjectFlags.NotSaved | GameObjectFlags.Hidden;
 			GizmoDuplicateObject.Tags.Add( "isgizmoobject" );
-			GizmoDuplicateObject.Transform.Position = projectedPoint.EndPosition;
+			GizmoDuplicateObject.WorldPosition = projectedPoint.EndPosition;
 		}
-		
+
 		foreach ( var obj in DuplicateObjectCollection )
 		{
-			if ( !gizmoDuplicate.Contains(obj) )
+			if ( !gizmoDuplicate.Contains( obj ) )
 			{
 				var dobj = obj.gameObject.Clone();
 				dobj.Parent = GizmoDuplicateObject;
-				dobj.Transform.Position = obj.position;
-				dobj.Transform.Rotation = obj.rotation;
+				dobj.WorldPosition = obj.position;
+				dobj.WorldRotation = obj.rotation;
 				dobj.MakeNameUnique();
 				dobj.Flags = GameObjectFlags.NotSaved | GameObjectFlags.Hidden;
 				dobj.Tags.Add( "isgizmoobject" );
-				
-				gizmoDuplicate.Add( obj ); 
+
+				gizmoDuplicate.Add( obj );
 				Log.Info( $"Duplicated:{obj.gameObject.Name}" );
 			}
 		}
-		
+
 		if ( GizmoDuplicateObject is not null )
 		{
-			GizmoDuplicateObject.Transform.Position = GetGizmoPosition( trace, cursorRay );
-			GizmoDuplicateObject.Transform.Rotation = Rotation.FromPitch( -90 ) * rotation;
+			GizmoDuplicateObject.WorldPosition = GetGizmoPosition( trace, cursorRay );
+			GizmoDuplicateObject.WorldRotation = Rotation.FromPitch( -90 ) * rotation;
 
 			using ( Gizmo.Scope( "selection_box" ) )
 			{
@@ -298,7 +298,7 @@ public partial class GridMapTool
 			Log.Info( "End Duplicate" );
 		}
 	}
-	
+
 	void PlaceGameObjectGizmo( SceneTraceResult trace, Ray cursorRay )
 	{
 		if ( SelectedJsonObject is not null )
@@ -306,21 +306,21 @@ public partial class GridMapTool
 			if ( GizmoGameObject is null )
 			{
 
-					//Log.Info( SelectedGameObject.Components.Count );
-					GizmoGameObject = new GameObject( true, "GizmoObject" );
-					PrefabUtility.MakeGameObjectsUnique( SelectedJsonObject );
-					GizmoGameObject.Deserialize( SelectedJsonObject );
-					GizmoGameObject.MakeNameUnique();
-					GizmoGameObject.Tags.RemoveAll();
-					GizmoGameObject.Tags.Add( "isgizmoobject" );
-					GizmoGameObject.Name = "GizmoObject";
-					GizmoGameObject.Flags |= GameObjectFlags.NotSaved | GameObjectFlags.Hidden;
+				//Log.Info( SelectedGameObject.Components.Count );
+				GizmoGameObject = new GameObject( true, "GizmoObject" );
+				PrefabUtility.MakeGameObjectsUnique( SelectedJsonObject );
+				GizmoGameObject.Deserialize( SelectedJsonObject );
+				GizmoGameObject.MakeNameUnique();
+				GizmoGameObject.Tags.RemoveAll();
+				GizmoGameObject.Tags.Add( "isgizmoobject" );
+				GizmoGameObject.Name = "GizmoObject";
+				GizmoGameObject.Flags |= GameObjectFlags.NotSaved | GameObjectFlags.Hidden;
 
-					Log.Info( "GizmoGameObject is null" );
+				Log.Info( "GizmoGameObject is null" );
 			}
 		}
-		
-		if(SelectedRandomJsonObject is not null)
+
+		if ( SelectedRandomJsonObject is not null )
 		{
 			if ( GizmoGameObject is null )
 			{
@@ -344,8 +344,8 @@ public partial class GridMapTool
 
 		if ( GizmoGameObject is not null )
 		{
-			GizmoGameObject.Transform.Position = GetGizmoPosition( trace, cursorRay );
-			GizmoGameObject.Transform.Rotation = Rotation.FromPitch( -90 ) * rotation;
+			GizmoGameObject.WorldPosition = GetGizmoPosition( trace, cursorRay );
+			GizmoGameObject.WorldRotation = Rotation.FromPitch( -90 ) * rotation;
 		}
 
 		//Log.Info( SelectedRandomJsonObject.Count );
@@ -360,7 +360,7 @@ public partial class GridMapTool
 		}
 	}
 
-	void PlaceDecalObjectGizmo( )
+	void PlaceDecalObjectGizmo()
 	{
 		var cursorRay = Gizmo.CurrentRay;
 
@@ -391,8 +391,8 @@ public partial class GridMapTool
 
 		if ( GizmoGameObject is not null )
 		{
-			GizmoGameObject.Transform.Position = trdecal.HitPosition.SnapToGrid( Gizmo.Settings.GridSpacing / 2 ) + trdecal.Normal * 10.0f;
-			GizmoGameObject.Transform.Rotation = Rotation.LookAt( trdecal.Normal ) * rotation;
+			GizmoGameObject.WorldPosition = trdecal.HitPosition.SnapToGrid( Gizmo.Settings.GridSpacing / 2 ) + trdecal.Normal * 10.0f;
+			GizmoGameObject.WorldRotation = Rotation.LookAt( trdecal.Normal ) * rotation;
 
 			var decal = GizmoGameObject.Components.Get<DecalRenderer>( FindMode.EnabledInSelf );
 			if ( decal is not null )

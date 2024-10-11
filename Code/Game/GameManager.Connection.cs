@@ -15,9 +15,9 @@ public partial class GameManager
 		if ( !Game.IsPlaying )
 			return;
 
-		if ( !GameNetworkSystem.IsActive )
+		if ( !Networking.IsActive )
 		{
-			GameNetworkSystem.CreateLobby();
+			Networking.CreateLobby();
 			InitializeHoles();
 		}
 

@@ -42,8 +42,8 @@ public partial class GameManager : Component, Component.INetworkListener
 			{
 				HoleNumber = hole.HoleNumber,
 				Par = hole.HolePar,
-				SpawnPosition = hole.Transform.Position,
-				SpawnAngle = hole.Transform.Rotation.Angles()
+				SpawnPosition = hole.WorldPosition,
+				SpawnAngle = hole.WorldRotation.Angles()
 			} );
 		}
 

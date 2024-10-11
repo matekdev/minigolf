@@ -18,8 +18,8 @@ public partial class HoleOrbitCamera : Pawn
 	public void Setup( Vector3 pos, Rotation rot, Vector3 orbitPos )
 	{
 		OrbitPosition = orbitPos;
-		Transform.Position = pos;
-		Transform.Rotation = rot;
+		WorldPosition = pos;
+		WorldRotation = rot;
 		Transform.ClearInterpolation();
 	}
 
@@ -42,8 +42,8 @@ public partial class HoleOrbitCamera : Pawn
 		TargetRotation = Rotation.From( (-dir).EulerAngles );
 
 		// Slerp slerp
-		Transform.Position = Transform.Position.LerpTo( TargetPosition, RealTime.Delta * LerpSpeed );
-		Transform.Rotation = Rotation.Slerp( Transform.Rotation, TargetRotation, RealTime.Delta * LerpSpeed );
+		WorldPosition = WorldPosition.LerpTo( TargetPosition, RealTime.Delta * LerpSpeed );
+		WorldRotation = Rotation.Slerp( WorldRotation, TargetRotation, RealTime.Delta * LerpSpeed );
 
 		if ( !IsProxy && Owner.IsValid() && _timeUntilSpectate )
 			Owner.AssignPawn<Spectate>();

@@ -38,7 +38,6 @@ public partial class GridMapTool
 
 	ListStyle CurrentListStyle = ListStyle.Grid;
 	private SegmentedControl paintmode;
-	private SerializedProperty resourceso;
 
 	public enum ListStyle
 	{
@@ -141,7 +140,7 @@ public partial class GridMapTool
 							SelectedRandomJsonObject = null;
 							Log.Info( "Clearing Random Object" );
 						}
-					
+
 						SelectedJsonObject = data.jsonObject;
 					}
 					UpdatePaintObjectGizmo();
@@ -215,6 +214,8 @@ public partial class GridMapTool
 			selectedamount = new Label( $"Selection: {SelectedGroupObjects.Count}" );
 			row2.Add( selectedamount );
 
+			currentaxisLabel = new Label();
+
 			var pop = Layout.Row();
 
 			var popbutton = pop.Add( new Button( "Options...", "more_horiz" ) { Clicked = () => { OpenDropdown( window ); } } );
@@ -258,18 +259,18 @@ public partial class GridMapTool
 
 	void ThreeDGizmo( SerializedObject so )
 	{
-		{ 
+		{
 			var wind = new WidgetWindow( SceneOverlay, "3D Gizmo" );
 
 			var row = Layout.Column();
 
 			gizmowidg = row.Add( new SceneGizmoControl( wind ) );
 			row.Add( gizmowidg );
-			
+
 			wind.OnPaintOverride += () => PaintGizmoBackground( wind );
 
 			wind.Layout = row;
-			AddOverlay( wind, TextFlag.RightTop, new Vector2( 320 ,0) );
+			AddOverlay( wind, TextFlag.RightTop, new Vector2( 320, 0 ) );
 		}
 	}
 
@@ -293,19 +294,19 @@ public partial class GridMapTool
 		popup.Width = 500;
 		popup.Layout = Layout.Column();
 		popup.Layout.Margin = 16;
-		
+
 		var ps = new PropertySheet( popup );
 		ps.AddSectionHeader( "Floors" );
 		{
 			floorLabel = ps.AddRow( "Current Floor Level:", new Label( floorCount.ToString() ) );
 		}
 		{
-			heightInput = ps.AddRow( "Floor Height:", new LineEdit("Floor Height") );
+			heightInput = ps.AddRow( "Floor Height:", new LineEdit( "Floor Height" ) );
 			heightInput.Bind( "Value" ).From( () => FloorHeight.ToString(), x => { if ( float.TryParse( x, out var f ) ) FloorHeight = f.FloorToInt(); } );
 			heightInput.Text = "128";
 		}
 		{
-			var x = ps.AddRow("Floor Level:", new TwoButton() );
+			var x = ps.AddRow( "Floor Level:", new TwoButton() );
 			x.button1.Clicked = () => { DoFloors( FloorHeight )(); floorLabel.Text = $"Floor Level: {floorCount.ToString()}"; };
 			x.button1.Icon = "arrow_upward";
 			x.label1.Text = "Shift + E";
@@ -316,8 +317,8 @@ public partial class GridMapTool
 
 		ps.AddSectionHeader( "Rotation" );
 		{
-			rotationSnapBox = ps.AddRow( "Rotation Snap :", new ComboBox());
-			foreach (var rot in RotationSnaps )
+			rotationSnapBox = ps.AddRow( "Rotation Snap :", new ComboBox() );
+			foreach ( var rot in RotationSnaps )
 			{
 				rotationSnapBox.AddItem( rot.ToString(), null, () => rotationSnap = rot, rotationLabel.Text = $"Rotation Snap: {rotationSnap}" );
 			}
@@ -375,12 +376,12 @@ public partial class GridMapTool
 		}
 		ps.AddSectionHeader( "Decal" );
 		{
-			var w = ps.AddRow("Tri Planar", new Checkbox( ) );
+			var w = ps.AddRow( "Tri Planar", new Checkbox() );
 			w.Bind( "Value" ).From( () => DecalTriPlanar, x => { DecalTriPlanar = x; } );
 		}
 
 		popup.Layout.Add( ps );
-		
+
 		AddOverlay( popup, TextFlag.None, window.Position + new Vector2( 0, window.Size.y ) );
 
 		popup.Show();
@@ -419,9 +420,9 @@ public partial class GridMapTool
 
 		return false;
 	}
-	private void PaintButton(string icon, ListStyle style)
+	private void PaintButton( string icon, ListStyle style )
 	{
-		if( CurrentListStyle == style )
+		if ( CurrentListStyle == style )
 		{
 			Paint.ClearPen();
 			Paint.SetBrush( Theme.Green.WithAlpha( 0.10f ) );
@@ -446,7 +447,7 @@ public partial class GridMapTool
 
 		Paint.Antialiasing = true;
 		Paint.TextAntialiasing = true;
-	
+
 		if ( brush.jsonObject == SelectedJsonObject && !brush.isRandom )
 		{
 			Paint.ClearPen();
@@ -482,7 +483,7 @@ public partial class GridMapTool
 		}
 		else
 		{
-			Paint.Draw( widget.Rect.Shrink(5), brush.icon );
+			Paint.Draw( widget.Rect.Shrink( 5 ), brush.icon );
 		}
 
 		var rect = widget.Rect;
@@ -502,7 +503,7 @@ public partial class GridMapTool
 		{
 			textRect.Right = textRect.Right + slider.Value;
 		}
-		
+
 		Paint.Antialiasing = true;
 
 		Paint.SetPen( Theme.Blue, 2.0f );
@@ -562,11 +563,11 @@ public partial class GridMapTool
 			Paint.ClearBrush();
 			Paint.SetBrush( Theme.Red.WithAlpha( 0.5f ) );
 			Paint.ClearPen();
-			Paint.DrawRect( new Rect( widget.Rect.Left + (iconscale * offset ) + (iconscale / 32f), widget.Rect.Top, iconscale, iconscale ), 3 );
+			Paint.DrawRect( new Rect( widget.Rect.Left + (iconscale * offset) + (iconscale / 32f), widget.Rect.Top, iconscale, iconscale ), 3 );
 			Paint.SetPen( Theme.White.WithAlpha( 0.5f ) );
 			Paint.DrawIcon( new Rect( widget.Rect.Left + (iconscale * offset) + (iconscale / 32f), widget.Rect.Top, 1f * iconscale, 1f * iconscale ), "shuffle", 1 * iconscale );
 		}
-		if( brush.isDecal )
+		if ( brush.isDecal )
 		{
 			offset += 1;
 			Paint.ClearPen();
@@ -577,7 +578,7 @@ public partial class GridMapTool
 			Paint.DrawIcon( new Rect( widget.Rect.Left + (iconscale * offset) + (iconscale / 32f), widget.Rect.Top, 1f * iconscale, 1f * iconscale ), "file_download", 1 * iconscale );
 
 		}
-		if( brush.isPrefab )
+		if ( brush.isPrefab )
 		{
 			offset += 1;
 			Paint.ClearPen();
@@ -641,7 +642,7 @@ public class NewCollectionObjectWindow : BaseWindow
 			gridmapToolDockWidget.CreateCollection( nameEdit.Text );
 			/*
 			var gameobject = new GameObject(true, nameEdit.Text );
-			gameobject.Transform.Position = Vector3.Zero;
+			gameobject.WorldPosition = Vector3.Zero;
 			gameobject.Tags.Add( "gridtile" );
 			gameobject.Tags.Add( "collection" );
 			*/
@@ -674,7 +675,7 @@ public class TwoButton : Widget
 		var layout = Layout.Row();
 		layout.Spacing = 4;
 		// Create the fvar irst button
-		button1 = layout.Add( new Button("", this ) );
+		button1 = layout.Add( new Button( "", this ) );
 		button1.ButtonType = "clear";
 
 		label1 = layout.Add( new Label( "", this ) );
@@ -682,7 +683,7 @@ public class TwoButton : Widget
 		layout.AddSpacingCell( 40 );
 
 		// Create the svar econd button
-		button2 = layout.Add( new Button("", this ) );
+		button2 = layout.Add( new Button( "", this ) );
 		button2.ButtonType = "clear";
 		button2.Position = new Vector2( 100, 0 );
 		layout.Add( button2 );
@@ -776,15 +777,15 @@ public class SceneGizmoControl : Widget
 		Paint.ClearBrush();
 		Paint.ClearPen();
 
-		var center = new Vector2(50, 50);
+		var center = new Vector2( 50, 50 );
 
-		var transformedUp = TransformDirection(Vector3.Up, CameraRotation); // Z Axis (Up)
-		var transformedForward = TransformDirection(Vector3.Forward, CameraRotation); // X Axis (Forward)
-		var transformedLeft = TransformDirection(Vector3.Left, CameraRotation); // Y Axis (Left)
+		var transformedUp = TransformDirection( Vector3.Up, CameraRotation ); // Z Axis (Up)
+		var transformedForward = TransformDirection( Vector3.Forward, CameraRotation ); // X Axis (Forward)
+		var transformedLeft = TransformDirection( Vector3.Left, CameraRotation ); // Y Axis (Left)
 
-		DrawMinAxisCircle( center, 32, Gizmo.Colors.Pitch, ProjectTo2D(-transformedForward)); // Back Axis
-		DrawMinAxisCircle( center, 32, Gizmo.Colors.Yaw, ProjectTo2D(-transformedLeft)); // Right Axis
-		DrawMinAxisCircle( center, 32, Gizmo.Colors.Roll, ProjectTo2D(-transformedUp)); // Down Axis
+		DrawMinAxisCircle( center, 32, Gizmo.Colors.Pitch, ProjectTo2D( -transformedForward ) ); // Back Axis
+		DrawMinAxisCircle( center, 32, Gizmo.Colors.Yaw, ProjectTo2D( -transformedLeft ) ); // Right Axis
+		DrawMinAxisCircle( center, 32, Gizmo.Colors.Roll, ProjectTo2D( -transformedUp ) ); // Down Axis
 		DrawAxisCircle( center, 32, Gizmo.Colors.Pitch, ProjectTo2D( transformedForward ) ); // Forward Axis
 		DrawAxisCircle( center, 32, Gizmo.Colors.Yaw, ProjectTo2D( transformedLeft ) ); // Left Axis
 		DrawAxisCircle( center, 32, Gizmo.Colors.Roll, ProjectTo2D( transformedUp ) ); // Up Axis
@@ -794,7 +795,7 @@ public class SceneGizmoControl : Widget
 		UpdateButtonPosition( minzAxisButton, Gizmo.Colors.Roll.WithAlpha( 0.5f ), ProjectTo2D( -transformedUp ) );
 
 		UpdateButtonPosition( xAxisButton, Gizmo.Colors.Pitch, ProjectTo2D( transformedForward ) );
-		UpdateButtonPosition( yAxisButton, Gizmo.Colors.Yaw ,ProjectTo2D( transformedLeft ) );
+		UpdateButtonPosition( yAxisButton, Gizmo.Colors.Yaw, ProjectTo2D( transformedLeft ) );
 		UpdateButtonPosition( zAxisButton, Gizmo.Colors.Roll, ProjectTo2D( transformedUp ) );
 
 		DrawButtonRotationCircle( freeRotation );
@@ -806,7 +807,7 @@ public class SceneGizmoControl : Widget
 		return new Vector2( vector3D.x, vector3D.y );
 	}
 
-	private void UpdateButtonPosition( Button button,Color color, Vector2 direction )
+	private void UpdateButtonPosition( Button button, Color color, Vector2 direction )
 	{
 		var endPoint = new Vector2( 50, 50 ) + direction * AxisRadius;
 		button.Position = endPoint - new Vector2( button.Width / 2, button.Height / 2 );
@@ -814,10 +815,10 @@ public class SceneGizmoControl : Widget
 		button.OnPaintOverride = () =>
 		{
 			var minsbutt = false;
-			if ( button.Text.Contains( "-" ) ) 
+			if ( button.Text.Contains( "-" ) )
 			{
 				minsbutt = true;
-			}; 
+			};
 			DrawButtonAxisCircle( button, 16, color, direction, minsbutt );
 			return true;
 		};
@@ -840,7 +841,7 @@ public class SceneGizmoControl : Widget
 
 			// Apply the rotations to the camera
 			SceneViewportWidget.LastSelected.State.CameraRotation = angles.ToRotation();
-			
+
 			// Calculate the new camera position based on orbit distance and rotation
 			var cameraDirection = SceneViewportWidget.LastSelected.State.CameraRotation.Forward;
 
@@ -857,7 +858,7 @@ public class SceneGizmoControl : Widget
 	{
 		Rotation combinedRotation = cameraRotation;
 
-		return direction * combinedRotation * Rotation.FromAxis(Vector3.Right,90);
+		return direction * combinedRotation * Rotation.FromAxis( Vector3.Right, 90 );
 	}
 	private Vector2 Normalize( Vector2 vector )
 	{
@@ -887,14 +888,14 @@ public class SceneGizmoControl : Widget
 			Paint.ClearPen();
 			Paint.DrawCircle( center.Size / 2, radius * 1.25f );
 
-			if(mins)
+			if ( mins )
 			{
-				Paint.SetDefaultFont( 8 , 600 );
+				Paint.SetDefaultFont( 8, 600 );
 				Paint.SetPen( Theme.White );
 				Paint.DrawText( center.LocalRect, center.Text );
 			}
 		}
-		if( !mins )
+		if ( !mins )
 		{
 			Paint.ClearPen();
 			Paint.SetPen( center.IsUnderMouse ? Theme.White : Theme.Black );
@@ -904,18 +905,18 @@ public class SceneGizmoControl : Widget
 
 		Paint.ClearBrush();
 		Paint.SetBrush( color.WithAlpha( 0.75f ) );
-		Paint.DrawCircle( 32 , 16 );
+		Paint.DrawCircle( 32, 16 );
 	}
-	
+
 	private void DrawAxisCircle( Vector2 center, float radius, Color color, Vector2 direction )
 	{
 		Paint.TextAntialiasing = true;
 		Paint.Antialiasing = true;
-		
+
 		direction = Normalize( direction );
 
 		var endPoint = center + direction * radius;
-		
+
 		// Draw the axis line
 		Paint.ClearPen();
 		Paint.SetBrush( color.Saturate( 0.75f ) );
@@ -924,7 +925,7 @@ public class SceneGizmoControl : Widget
 
 		Paint.ClearBrush();
 		Paint.SetBrush( color.WithAlpha( 0.75f ) );
-	
+
 		Paint.DrawCircle( endPoint, 16 );
 	}
 
@@ -932,14 +933,14 @@ public class SceneGizmoControl : Widget
 	{
 		Paint.TextAntialiasing = true;
 		Paint.Antialiasing = true;
-		
+
 		direction = Normalize( direction );
 
 		var endPoint = center + direction * radius;
 		// Draw the axis line
 		Paint.ClearPen();
 		Paint.SetBrush( color );
-		Paint.SetPen( color.WithAlpha(0.2f), 2.0f );
+		Paint.SetPen( color.WithAlpha( 0.2f ), 2.0f );
 		Paint.DrawLine( center, endPoint - direction * 10 );
 
 		Paint.ClearBrush();

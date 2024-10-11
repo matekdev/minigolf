@@ -9,7 +9,7 @@ public partial class GridMapTool
 	private SceneTraceResult projectedPoint;
 	public int FloorHeight = 128;
 
-	public SceneTraceResult CursorRay (Ray cursorRay )
+	public SceneTraceResult CursorRay( Ray cursorRay )
 	{
 		var tr = Scene.Trace.Ray( cursorRay, 5000 )
 		.UseRenderMeshes( true )
@@ -23,9 +23,9 @@ public partial class GridMapTool
 	{
 		//if ( SelectedJsonObject is null ) return;
 		using var scope = SceneEditorSession.Scope();
-		
+
 		projectedPoint = ProjectRayOntoGroundPlane( cursorRay.Position, cursorRay.Forward, floors );
-		
+
 		if ( projectedPoint.Hit )
 		{
 			// Snap the projected point to the grid and adjust for floor height
@@ -47,8 +47,8 @@ public partial class GridMapTool
 				PrefabUtility.MakeGameObjectsUnique( randomTileJson );
 				go.Deserialize( randomTileJson );
 				go.Parent = CurrentGameObjectCollection;
-				go.Transform.Position = snappedPosition;
-				go.Transform.Rotation = Rotation.FromPitch( -90 ) * rotation;
+				go.WorldPosition = snappedPosition;
+				go.WorldRotation = Rotation.FromPitch( -90 ) * rotation;
 				go.Tags.Remove( "group" );
 				go.Tags.Add( "gridtile" );
 
@@ -61,8 +61,8 @@ public partial class GridMapTool
 				PrefabUtility.MakeGameObjectsUnique( SelectedJsonObject );
 				go.Deserialize( SelectedJsonObject );
 				go.Parent = CurrentGameObjectCollection;
-				go.Transform.Position = snappedPosition;
-				go.Transform.Rotation = Rotation.FromPitch( -90 ) * rotation;
+				go.WorldPosition = snappedPosition;
+				go.WorldRotation = Rotation.FromPitch( -90 ) * rotation;
 				go.Tags.Remove( "group" );
 				go.Tags.Add( "gridtile" );
 
@@ -81,7 +81,7 @@ public partial class GridMapTool
 				.UsePhysicsWorld( true )
 				.Run();
 
-		if(trdecal.Hit )
+		if ( trdecal.Hit )
 		{
 			if ( SelectedJsonObject is not null )
 			{
@@ -89,8 +89,8 @@ public partial class GridMapTool
 				PrefabUtility.MakeGameObjectsUnique( SelectedJsonObject );
 				go.Deserialize( SelectedJsonObject );
 				go.Parent = CurrentGameObjectCollection;
-				go.Transform.Position = GizmoGameObject.Transform.Position;
-				go.Transform.Rotation = GizmoGameObject.Transform.Rotation;
+				go.WorldPosition = GizmoGameObject.WorldPosition;
+				go.WorldRotation = GizmoGameObject.WorldRotation;
 				go.Tags.Remove( "group" );
 				go.Tags.Add( "gridtile" );
 				var addition = go.Components.Get<DecalRenderer>();
@@ -113,30 +113,30 @@ public partial class GridMapTool
 			obj.Tags.Remove( "isgizmoobject" );
 
 			using var scope = SceneEditorSession.Scope();
-			
+
 			var options = new GameObject.SerializeOptions();
 			var selection = obj;
 			var json = selection.Serialize( options );
 
-			SceneUtility.MakeGameObjectsUnique( json );
+			SceneUtility.MakeIdGuidsUnique( json );
 			var go = SceneEditorSession.Active.Scene.CreateObject();
-		
+
 			go.Deserialize( json );
 			go.MakeNameUnique();
 			go.Parent = CurrentGameObjectCollection;
-			go.Transform.Position = obj.Transform.Position;
-			go.Transform.Rotation = obj.Transform.Rotation;
+			go.WorldPosition = obj.WorldPosition;
+			go.WorldRotation = obj.WorldRotation;
 
 			go.Tags.Add( "gridtile" );
 
 			Log.Info( $"Duplicated:{obj.Name}" );
 		}
-		
+
 	}
 
 	public void HandleRemove( Ray cursorRay )
-	{		
-		if ( CursorRay(cursorRay).Hit )
+	{
+		if ( CursorRay( cursorRay ).Hit )
 		{
 			Log.Info( $"Remove {CursorRay( cursorRay ).GameObject.Name}" );
 			CursorRay( cursorRay ).GameObject.Destroy();
@@ -148,7 +148,7 @@ public partial class GridMapTool
 		{
 			Log.Info( $"Start Moving {CursorRay( cursorRay ).GameObject.Name}" );
 			SelectedObject = CursorRay( cursorRay ).GameObject;
-			lastRot = SelectedObject.Transform.Rotation;
+			lastRot = SelectedObject.WorldRotation;
 			beenRotated = false;
 		}
 	}
@@ -163,17 +163,17 @@ public partial class GridMapTool
 			// Snap the projected point to the grid and adjust for floor height
 			var snappedPosition = projectedPoint.EndPosition;
 
-			SelectedObject.Transform.Position = snappedPosition;
+			SelectedObject.WorldPosition = snappedPosition;
 
 			// Only update rotation if 'shouldRotate' is true
 			if ( beenRotated )
 			{
-				SelectedObject.Transform.Rotation = Rotation.FromPitch( -90 ) * rotation;
+				SelectedObject.WorldRotation = Rotation.FromPitch( -90 ) * rotation;
 			}
 			else
 			{
 				// Keep the last rotation
-				SelectedObject.Transform.Rotation = lastRot;
+				SelectedObject.WorldRotation = lastRot;
 			}
 		}
 	}
@@ -187,15 +187,15 @@ public partial class GridMapTool
 			var options = new GameObject.SerializeOptions();
 			var selection = CopyObject;
 			var json = selection.Serialize( options );
-			
-			SceneUtility.MakeGameObjectsUnique( json );
+
+			SceneUtility.MakeIdGuidsUnique( json );
 			var go = SceneEditorSession.Active.Scene.CreateObject();
 
 			go.Deserialize( json );
 			go.MakeNameUnique();
 			go.Parent = CurrentGameObjectCollection;
-			go.Transform.Position = GetGizmoPosition( trace, cursorRay );
-			go.Transform.Rotation = GizmoGameObject.Transform.Rotation;
+			go.WorldPosition = GetGizmoPosition( trace, cursorRay );
+			go.WorldRotation = GizmoGameObject.WorldRotation;
 
 			go.Tags.Add( "gridtile" );
 		}
@@ -205,7 +205,7 @@ public partial class GridMapTool
 	{
 		if ( CursorRay( cursorRay ).Hit )
 		{
-			if( CursorRay( cursorRay ).GameObject.IsPrefabInstance)
+			if ( CursorRay( cursorRay ).GameObject.IsPrefabInstance )
 			{
 				var prefab = CursorRay( cursorRay ).GameObject.Root;
 				CopyObject = prefab;
@@ -223,14 +223,12 @@ public partial class GridMapTool
 	bool _decalX = false;
 	bool _decalY = false;
 	bool _decalZ = false;
-	bool _decalMinZ = false;
-
 
 	public void DecalScale()
 	{
 		if ( CurrentPaintMode != PaintMode.Decal ) return;
 
-		if (Gizmo.IsShiftPressed && Application.IsKeyDown( KeyCode.Q ) && !_decalX )
+		if ( Gizmo.IsShiftPressed && Application.IsKeyDown( KeyCode.Q ) && !_decalX )
 		{
 			decalX += 2;
 			Log.Info( $"Decal X: {decalX}" );
@@ -265,7 +263,7 @@ public partial class GridMapTool
 		_decalY = Application.IsKeyDown( KeyCode.W );
 		_decalZ = Application.IsKeyDown( KeyCode.E );
 	}
-	
+
 	bool _prevlessFloor = false;
 	bool _prevmoreFloor = false;
 	public void FloorHeightShortCut()
@@ -302,7 +300,7 @@ public partial class GridMapTool
 		_prevlessFloor = Application.IsKeyDown( KeyCode.Q );
 		_prevmoreFloor = Application.IsKeyDown( KeyCode.E );
 	}
-	
+
 	//Nasty
 	bool _prevlessRotationZ = false;
 	bool _prevmoreRotationZ = false;
@@ -362,13 +360,13 @@ public partial class GridMapTool
 	{
 		if ( Gizmo.IsShiftPressed && Application.IsKeyDown( KeyCode.Num4 ) && !_prevlessRotationSnap )
 		{
-			if( rotationSnapBox.CurrentIndex != 0)
-			rotationSnapBox.CurrentIndex = rotationSnapBox.CurrentIndex - 1;
+			if ( rotationSnapBox.CurrentIndex != 0 )
+				rotationSnapBox.CurrentIndex = rotationSnapBox.CurrentIndex - 1;
 			rotationLabel.Text = $"Rotation Snap: {rotationSnap}";
 		}
 		else if ( Gizmo.IsShiftPressed && Application.IsKeyDown( KeyCode.Num5 ) && !_prevmoreRotationSnap )
 		{
-			if ( rotationSnapBox.CurrentIndex != rotationSnapBox.Count -1 )
+			if ( rotationSnapBox.CurrentIndex != rotationSnapBox.Count - 1 )
 				rotationSnapBox.CurrentIndex = rotationSnapBox.CurrentIndex + 1;
 			rotationLabel.Text = $"Rotation Snap: {rotationSnap}";
 		}

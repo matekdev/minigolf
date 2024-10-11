@@ -41,7 +41,7 @@ public class HoleGoal : Component
 		CuppedEvent( ball, currentHole.Value );
 
 		if ( !ball.IsProxy )
-			ball.Cup( Transform.Position );
+			ball.Cup( WorldPosition );
 	}
 
 	[Broadcast]

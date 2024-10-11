@@ -23,7 +23,7 @@ public partial class GolfBall
 
 		if ( ShotPower >= 0.01f && !Input.Down( InputAction.LeftClick ) )
 		{
-			Stroke( Camera.Transform.Rotation.Forward, ShotPower );
+			Stroke( Camera.WorldRotation.Forward, ShotPower );
 			LastShotPower = ShotPower;
 			ShotPower = 0;
 		}
