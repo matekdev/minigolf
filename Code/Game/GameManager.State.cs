@@ -2,24 +2,22 @@ namespace Minigolf;
 
 public partial class GameManager
 {
-	public static bool IsMovingToNextHole => IsHoleEnding;
-
 	[HostSync]
-	public static bool IsHoleEnding { get; private set; }
+	public GameState State { get; private set; } = GameState.WaitingForPlayers;
 
 	protected override void OnUpdate()
 	{
 		if ( !IsProxy )
 		{
 			var isHoleFinished = Clients.All( c => !c.IsValid() || c.Pawn is not GolfBall ball );
-			if ( isHoleFinished && !IsHoleEnding )
+			if ( isHoleFinished && State is GameState.HoleFinished )
 				HoleOutro();
 		}
 	}
 
 	private async void HoleOutro()
 	{
-		IsHoleEnding = true;
+		State = GameState.HoleFinished;
 
 		await GameTask.DelaySeconds( 3.5f );
 		UI.Scoreboard.ForceScoreboard( true );
@@ -34,7 +32,7 @@ public partial class GameManager
 		}
 
 		UI.Scoreboard.ForceScoreboard( false );
-		IsHoleEnding = false;
+		State = GameState.InPlay;
 	}
 
 	private bool AssignNextHole()

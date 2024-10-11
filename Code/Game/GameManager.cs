@@ -19,14 +19,6 @@ public partial class GameManager : Component, Component.INetworkListener
 		Instance = this;
 	}
 
-	protected override void OnStart()
-	{
-		if ( !IsProxy )
-		{
-			SpawnBallAtHole( CurrentHole.Value );
-		}
-	}
-
 	private void InitializeHoles()
 	{
 		foreach ( var hole in Scene.GetAllComponents<GolfBallSpawnPoint>().OrderBy( spawn => spawn.HoleNumber ) )
