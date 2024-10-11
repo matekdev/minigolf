@@ -1,8 +1,8 @@
 namespace Minigolf;
 
-public record ClientConnectedEvent( Client Client ) : IGameEvent;
+public record ClientConnectedEvent( string DisplayName, Guid connectionId ) : IGameEvent;
 
-public record ClientDisconnectedEvent( Client Client ) : IGameEvent;
+public record ClientDisconnectedEvent( string DisplayName, Guid connectionId ) : IGameEvent;
 
 public record BallCuppedEvent( Client Client, HoleInfo HoleInfo, int Score ) : IGameEvent;
 

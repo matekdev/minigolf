@@ -4,6 +4,8 @@
 
 @implements IGameEventHandler<ChatMessageEvent>
 @implements IGameEventHandler<InfoChatMessageEvent>
+@implements IGameEventHandler<ClientConnectedEvent>
+@implements IGameEventHandler<ClientDisconnectedEvent>
 
 <root>
 	<div class="canvas" @ref=Canvas></div>
@@ -34,6 +36,9 @@
 
 	private void AddEntry( TextChatEntry entry )
 	{
+		if (!Canvas.IsValid())
+			return;
+
 		Canvas.AddChild( entry );
 		Canvas.TryScrollToBottom();
 
@@ -92,6 +97,16 @@
 	void IGameEventHandler<InfoChatMessageEvent>.OnGameEvent( InfoChatMessageEvent eventArgs )
     {
 		AddEntry(new TextChatEntry(){ Message = eventArgs.Message });
+	}
+
+	void IGameEventHandler<ClientConnectedEvent>.OnGameEvent( ClientConnectedEvent eventArgs )
+    {
+		AddEntry(new TextChatEntry(){ Message = $"{eventArgs.DisplayName} has connected" });
+	}
+
+	void IGameEventHandler<ClientDisconnectedEvent>.OnGameEvent( ClientDisconnectedEvent eventArgs )
+    {
+		AddEntry(new TextChatEntry(){ Message = $"{eventArgs.DisplayName} has disconnected" });
 	}
 
 	[ConCmd("mg_chat_info")]

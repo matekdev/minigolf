@@ -10,6 +10,7 @@ public partial class GameManager
 	[HostSync]
 	private NetList<Client> InternalClients { get; set; } = new();
 
+	// TODO: Rework init logic, the client connection data isn't set up in time...
 	protected override async Task OnLoad()
 	{
 		if ( !Game.IsPlaying )
@@ -26,16 +27,17 @@ public partial class GameManager
 
 		var client = clientObj.Components.Get<Client>();
 		client.AssignConnection();
+		SpawnBallAtHole( CurrentHole.Value );
 
-		ClientConnected( client, Connection.Local.Id );
+		ClientConnected( client, Connection.Local.DisplayName, Connection.Local.Id );
 
 		await GameTask.CompletedTask;
 	}
 
 	[Broadcast]
-	private void ClientConnected( Client client, Guid connectionId )
+	private void ClientConnected( Client client, string name, Guid connectionId )
 	{
-		Scene.Dispatch( new ClientConnectedEvent( client ) );
+		Scene.Dispatch( new ClientConnectedEvent( name, connectionId ) );
 
 		if ( Connection.Local.IsHost )
 		{
@@ -49,7 +51,7 @@ public partial class GameManager
 		var client = InternalClients?.FirstOrDefault( c => c?.ConnectionId == channel?.Id );
 		if ( client is not null )
 		{
-			Scene.Dispatch( new ClientDisconnectedEvent( client ) );
+			Scene.Dispatch( new ClientDisconnectedEvent( client.DisplayName, client.ConnectionId ) );
 
 			if ( Connection.Local.IsHost )
 				InternalClients.Remove( client );

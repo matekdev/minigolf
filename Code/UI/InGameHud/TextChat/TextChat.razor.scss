@@ -37,10 +37,11 @@ TextChat {
     }
 
     &.open {
+        pointer-events: all;
+
         textentry {
             opacity: 1;
             backdrop-filter: blur(10px);
-            pointer-events: all;
         }
 
         .canvas {
