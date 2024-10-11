@@ -2,7 +2,7 @@
 @inherits PanelComponent
 @attribute [StyleSheet]
 
-@implements IGameEventHandler<ForceScoreboardEvent>
+@implements IGameEventHandler<GameStateChangeEvent>
 
 <root>
 	<div class="timer">
@@ -111,15 +111,9 @@
 			SetClass( "open", Input.Down( InputAction.Tab ) );
 	}
 
-	[Broadcast]
-	public static void ForceScoreboard(bool open)
-	{
-		Game.ActiveScene.Dispatch(new ForceScoreboardEvent(open));
-	}
-
-	void IGameEventHandler<ForceScoreboardEvent>.OnGameEvent( ForceScoreboardEvent eventArgs )
+	void IGameEventHandler<GameStateChangeEvent>.OnGameEvent( GameStateChangeEvent eventArgs )
     {
-		ForceOpen = eventArgs.Open;
+		ForceOpen = eventArgs.NewState is GameState.HoleFinished;
 	}
 
 	protected override int BuildHash()

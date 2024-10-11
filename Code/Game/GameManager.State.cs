@@ -20,8 +20,10 @@ public partial class GameManager
 		}
 	}
 
-	private void OnStateChange( GameState _, GameState newState )
+	private void OnStateChange( GameState oldState, GameState newState )
 	{
+		Scene.Dispatch( new GameStateChangeEvent( oldState, newState ) );
+		// TODO: See if we can hook into events to make this work instead.
 		AssignStatePawn( newState );
 	}
 
@@ -55,10 +57,6 @@ public partial class GameManager
 	private async void HoleOutro()
 	{
 		State = GameState.HoleFinished;
-
-		await GameTask.DelaySeconds( 3.5f );
-		UI.Scoreboard.ForceScoreboard( true );
-
 		await GameTask.DelaySeconds( 5.0f );
 
 		var isGameFinished = AssignNextHole();
@@ -68,7 +66,6 @@ public partial class GameManager
 			return;
 		}
 
-		UI.Scoreboard.ForceScoreboard( false );
 		State = GameState.InPlay;
 	}
 
