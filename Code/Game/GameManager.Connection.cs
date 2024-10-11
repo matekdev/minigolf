@@ -27,8 +27,7 @@ public partial class GameManager
 
 		var client = clientObj.Components.Get<Client>();
 		client.AssignConnection();
-		SpawnBallAtHole( CurrentHole.Value );
-
+		AssignStatePawn( State );
 		ClientConnected( client, Connection.Local.DisplayName, Connection.Local.Id );
 
 		await GameTask.CompletedTask;

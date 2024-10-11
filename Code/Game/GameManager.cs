@@ -46,5 +46,6 @@ public partial class GameManager : Component, Component.INetworkListener
 		}
 
 		CurrentHoleNumber = Holes.First().HoleNumber;
+		State = GameState.WaitingForPlayers;
 	}
 }

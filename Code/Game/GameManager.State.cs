@@ -2,8 +2,10 @@ namespace Minigolf;
 
 public partial class GameManager
 {
-	[HostSync]
-	public GameState State { get; private set; } = GameState.WaitingForPlayers;
+	[HostSync, Change( "OnStateChange" )]
+	public GameState State { get; private set; } = GameState.Initialziation;
+
+	private TimeUntil timeUntilStart = 2f;
 
 	protected override void OnUpdate()
 	{
@@ -12,6 +14,41 @@ public partial class GameManager
 			var isHoleFinished = Clients.All( c => !c.IsValid() || c.Pawn is not GolfBall ball );
 			if ( isHoleFinished && State is GameState.HoleFinished )
 				HoleOutro();
+
+			if ( timeUntilStart && State is GameState.WaitingForPlayers )
+				State = GameState.InPlay;
+		}
+	}
+
+	private void OnStateChange( GameState _, GameState newState )
+	{
+		AssignStatePawn( newState );
+	}
+
+	private void AssignStatePawn( GameState state )
+	{
+		if ( !Client.Local.IsValid() )
+			return;
+
+		Log.Info( "called" );
+
+		switch ( state )
+		{
+			case GameState.Initialziation:
+				Client.Local.AssignPawn<Spectate>();
+				break;
+			case GameState.WaitingForPlayers:
+				Client.Local.AssignPawn<Spectate>();
+				break;
+			case GameState.InPlay:
+				Client.Local.AssignPawn<GolfBall>();
+				break;
+			case GameState.HoleFinished:
+				Client.Local.AssignPawn<HoleOrbitCamera>();
+				break;
+			case GameState.GameFinished:
+				Client.Local.AssignPawn<Spectate>();
+				break;
 		}
 	}
 
