@@ -1,7 +1,7 @@
 {
   "Title": "Matt\u0027s Minigolf",
   "Type": "game",
-  "Org": "fish",
+  "Org": "matt",
   "Ident": "minigolf",
   "Schema": 1,
   "IncludeSourceFiles": false,
