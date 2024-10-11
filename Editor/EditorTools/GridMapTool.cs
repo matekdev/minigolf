@@ -457,6 +457,8 @@ public partial class GridMapTool : EditorTool
 			finishedLoadedFromScene = true;
 			gameObject.Destroy();
 		}
+
+		await GameTask.CompletedTask;
 	}
 
 	bool loadscene;
