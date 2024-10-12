@@ -39,7 +39,7 @@ public partial class GameManager
 		if ( IsProxy )
 			return;
 
-		await GameTask.DelaySeconds( 2f );
+		await GameTask.DelaySeconds( 4f );
 
 		// UI is shown during this state.
 		State = GameState.MovingToNextHole;

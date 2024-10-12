@@ -24,5 +24,7 @@ public class GolfBallSpawnPoint : Component
 		);
 
 		Gizmo.Draw.Model( "models/golf_ball/golf_ball.vmdl" );
+		Gizmo.Draw.LineThickness = 6f;
+		Gizmo.Draw.Arrow( Vector3.Zero, Vector3.Forward * 5f, 1f, 0.4f );
 	}
 }
