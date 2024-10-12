@@ -2,8 +2,10 @@ namespace Minigolf;
 
 public partial class GameManager
 {
+	public static GameState CurrentState => Instance?.State ?? GameState.WaitingForPlayers;
+
 	[HostSync, Change( nameof( OnStateChange ) )]
-	public GameState State { get; private set; } = GameState.WaitingForPlayers;
+	private GameState State { get; set; } = GameState.WaitingForPlayers;
 
 	protected override void OnUpdate()
 	{

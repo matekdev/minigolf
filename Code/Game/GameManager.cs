@@ -41,8 +41,9 @@ public partial class GameManager : Component, Component.INetworkListener
 
 		if ( Holes.Count == 0 )
 		{
-			Log.Warning( "This map has no golf holes..." );
+			Log.Warning( "This map does NOT support minigolf... disconnecting..." );
 			Game.Disconnect();
+			return;
 		}
 
 		StartGame();

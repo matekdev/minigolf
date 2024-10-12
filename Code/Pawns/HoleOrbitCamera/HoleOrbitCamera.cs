@@ -45,7 +45,7 @@ public partial class HoleOrbitCamera : Pawn
 		WorldPosition = WorldPosition.LerpTo( TargetPosition, RealTime.Delta * LerpSpeed );
 		WorldRotation = Rotation.Slerp( WorldRotation, TargetRotation, RealTime.Delta * LerpSpeed );
 
-		if ( !IsProxy && Owner.IsValid() && _timeUntilSpectate )
+		if ( !IsProxy && Owner.IsValid() && GameManager.CurrentState is GameState.InPlay && _timeUntilSpectate )
 			Owner.AssignPawn<Spectate>();
 	}
 }
