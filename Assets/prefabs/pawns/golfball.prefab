@@ -22,7 +22,11 @@
           "go": "db4d2869-809c-45ae-8f18-d159463f0a92",
           "component_type": "ModelRenderer"
         },
-        "SwingSound": "sounds/golfball_swing/golfball_swing.sound"
+        "SwingSound": "sounds/golfball_swing/golfball_swing.sound",
+        "VoiceChatWorldPanel": {
+          "_type": "gameobject",
+          "go": "2db8a346-9713-49e2-a1f8-4521d7845618"
+        }
       },
       {
         "__type": "Sandbox.BoxCollider",
@@ -71,6 +75,12 @@
             "__guid": "17b03bc7-45ec-4501-9bfb-0ca86bc9e649",
             "BodyGroups": 18446744073709551615,
             "Model": "models/golf_ball/golf_ball.vmdl",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
             "RenderType": "On",
             "Tint": "1,1,1,1"
           }
@@ -84,6 +94,36 @@
         "Tags": "particles",
         "__Prefab": "prefabs/particles/golfball_circle/golfball_circle.prefab",
         "__PrefabVariables": {}
+      },
+      {
+        "__guid": "2db8a346-9713-49e2-a1f8-4521d7845618",
+        "Flags": 0,
+        "Name": "VoiceChatWorldPanel",
+        "Position": "0,0,5.344732",
+        "Enabled": true,
+        "NetworkMode": 1,
+        "Components": [
+          {
+            "__type": "Sandbox.WorldPanel",
+            "__guid": "8c6f3f60-129c-4106-a5dd-64a2cc0f34c0",
+            "HorizontalAlign": "Center",
+            "InteractionRange": 1000,
+            "LookAtCamera": true,
+            "PanelSize": "100,100",
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
+            "RenderScale": 1,
+            "VerticalAlign": "Center"
+          },
+          {
+            "__type": "Minigolf.UI.VoiceChatWorldPanel",
+            "__guid": "b510271c-6986-402a-a32c-21bc628958f9"
+          }
+        ]
       }
     ],
     "__variables": []
@@ -91,6 +131,7 @@
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
+  "DontBreakAsTemplate": false,
   "ResourceVersion": 1,
   "__references": [],
   "__version": 1

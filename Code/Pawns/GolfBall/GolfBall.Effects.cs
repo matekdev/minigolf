@@ -5,11 +5,19 @@ public partial class GolfBall
 	[Property, Category( "Effects" )]
 	public GameObject CircleEffect { get; set; }
 
+	[Property, Category( "Effects" )]
+	public GameObject VoiceChatWorldPanel { get; set; }
+
 	private PowerArrow PowerArrow { get; set; }
 
 	private void ImpactEffects( Vector3 pos, float speed )
 	{
 		// TODO: New particles here.
+	}
+
+	private void UpdateVoiceChatWorldPanel()
+	{
+		VoiceChatWorldPanel.Enabled = Owner.IsValid() && Owner.IsSpeaking;
 	}
 
 	private void UpdateCircleEffect()

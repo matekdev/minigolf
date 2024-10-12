@@ -4,7 +4,7 @@
 <root>
 	@foreach(var client in GameManager.Clients)
 	{
-		if (client.IsValid() && !client.IsSpeaking)
+		if (client.IsValid() && client.IsSpeaking)
 		{
 			<VoiceChatEntry Client=@client />
 		}
