@@ -100,12 +100,14 @@
 
 	void IGameEventHandler<ClientConnectedEvent>.OnGameEvent( ClientConnectedEvent eventArgs )
     {
-		AddEntry(new TextChatEntry(){ Message = $"{eventArgs.DisplayName} has connected" });
+		var connection = Connection.Find(eventArgs.ConnectionId);
+		AddEntry(new TextChatEntry(){ Message = $"{connection.DisplayName} has connected" });
 	}
 
 	void IGameEventHandler<ClientDisconnectedEvent>.OnGameEvent( ClientDisconnectedEvent eventArgs )
     {
-		AddEntry(new TextChatEntry(){ Message = $"{eventArgs.DisplayName} has disconnected" });
+		var connection = Connection.Find(eventArgs.ConnectionId);
+		AddEntry(new TextChatEntry(){ Message = $"{connection.DisplayName} has disconnected" });
 	}
 
 	[ConCmd("mg_chat_info")]

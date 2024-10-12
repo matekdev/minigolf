@@ -112,7 +112,7 @@
 
 	void IGameEventHandler<GameStateChangeEvent>.OnGameEvent( GameStateChangeEvent eventArgs )
     {
-		ForceOpen = eventArgs.NewState is GameState.HoleFinished;
+		ForceOpen = eventArgs.NewState is GameState.MovingToNextHole;
 	}
 
 	protected override int BuildHash()

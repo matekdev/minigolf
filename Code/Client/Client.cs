@@ -38,10 +38,12 @@ public partial class Client : Component
 		return pawn;
 	}
 
-	public void AssignConnection()
+	public void AssignConnection( Connection connection )
 	{
-		ConnectionId = Connection.Local.Id;
-		GameObject.Name = $"{DisplayName} / {SteamId}";
-		Local = this;
+		ConnectionId = connection.Id;
+		GameObject.Name = $"{Connection.DisplayName} - CLIENT";
+
+		if ( connection == Connection.Local )
+			Local = this;
 	}
 }

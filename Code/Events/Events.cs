@@ -2,9 +2,9 @@ namespace Minigolf;
 
 public record GameStateChangeEvent( GameState OldState, GameState NewState ) : IGameEvent;
 
-public record ClientConnectedEvent( string DisplayName, Guid ConnectionId ) : IGameEvent;
+public record ClientConnectedEvent( Guid ConnectionId ) : IGameEvent;
 
-public record ClientDisconnectedEvent( string DisplayName, Guid ConnectionId ) : IGameEvent;
+public record ClientDisconnectedEvent( Guid ConnectionId ) : IGameEvent;
 
 public record BallCuppedEvent( Client Client, HoleInfo HoleInfo, int Score ) : IGameEvent;
 

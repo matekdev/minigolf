@@ -41,11 +41,16 @@ public partial class GameManager : Component, Component.INetworkListener
 
 		if ( Holes.Count == 0 )
 		{
-			Log.Warning( "This map has no golf holes... returning to lobby" );
-			return;
+			Log.Warning( "This map has no golf holes..." );
+			Game.Disconnect();
 		}
 
-		CurrentHoleNumber = Holes.First().HoleNumber;
-		State = GameState.WaitingForPlayers;
+		StartGame();
+	}
+
+	private async void StartGame()
+	{
+		await GameTask.DelaySeconds( 2f );
+		State = GameState.InPlay;
 	}
 }

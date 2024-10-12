@@ -2,83 +2,70 @@ namespace Minigolf;
 
 public partial class GameManager
 {
-	[HostSync, Change( "OnStateChange" )]
-	public GameState State { get; private set; } = GameState.Initialziation;
-
-	private TimeUntil timeUntilStart = 2f;
+	[HostSync, Change( nameof( OnStateChange ) )]
+	public GameState State { get; private set; } = GameState.WaitingForPlayers;
 
 	protected override void OnUpdate()
 	{
 		if ( !IsProxy )
 		{
-			var isHoleFinished = Clients.All( c => !c.IsValid() || c.Pawn is not GolfBall ball );
-			if ( isHoleFinished && State is GameState.HoleFinished )
-				HoleOutro();
-
-			if ( timeUntilStart && State is GameState.WaitingForPlayers )
-				State = GameState.InPlay;
+			var isHoleFinished = Clients.All( c => !c.IsValid() || c.Pawn is not GolfBall ball ) && State is GameState.InPlay;
+			if ( isHoleFinished )
+				State = GameState.HoleComplete;
 		}
 	}
 
 	private void OnStateChange( GameState oldState, GameState newState )
 	{
 		Scene.Dispatch( new GameStateChangeEvent( oldState, newState ) );
-		// TODO: See if we can hook into events to make this work instead.
-		AssignStatePawn( newState );
-	}
 
-	private void AssignStatePawn( GameState state )
-	{
-		if ( !Client.Local.IsValid() )
-			return;
-
-		Log.Info( "called" );
-
-		switch ( state )
+		switch ( State )
 		{
-			case GameState.Initialziation:
-				Client.Local.AssignPawn<Spectate>();
-				break;
 			case GameState.WaitingForPlayers:
-				Client.Local.AssignPawn<Spectate>();
-				break;
-			case GameState.InPlay:
-				Client.Local.AssignPawn<GolfBall>();
-				break;
-			case GameState.HoleFinished:
-				Client.Local.AssignPawn<HoleOrbitCamera>();
-				break;
 			case GameState.GameFinished:
-				Client.Local.AssignPawn<Spectate>();
+				if ( Client.Local.IsValid() )
+					Client.Local.AssignPawn<Spectate>();
+				break;
+			case GameState.HoleComplete:
+				MoveToNextHole();
 				break;
 		}
 	}
 
-	private async void HoleOutro()
+	private async void MoveToNextHole()
 	{
-		State = GameState.HoleFinished;
-		await GameTask.DelaySeconds( 5.0f );
-
-		var isGameFinished = AssignNextHole();
-		if ( isGameFinished )
-		{
-			EndGame();
+		if ( IsProxy )
 			return;
-		}
 
-		State = GameState.InPlay;
-	}
+		await GameTask.DelaySeconds( 2f );
 
-	private bool AssignNextHole()
-	{
+		// UI is shown during this state.
+		State = GameState.MovingToNextHole;
+
+		await GameTask.DelaySeconds( 2f );
+
 		var nextHole = GetNextHole();
 		if ( nextHole is null )
-			return true;
+		{
+			State = GameState.GameFinished;
+			return;
+		}
 
 		CurrentHoleNumber = nextHole.Value.HoleNumber;
 		SpawnBallAtHole( nextHole.Value );
+		State = GameState.InPlay;
+	}
 
-		return false;
+	private HoleInfo? GetNextHole()
+	{
+		if ( CurrentHoleIndex == -1 )
+			return InternalHoles.FirstOrDefault();
+
+		var nextHoleIndex = CurrentHoleIndex + 1;
+		if ( nextHoleIndex >= InternalHoles.Count )
+			return null;
+
+		return InternalHoles.ElementAt( CurrentHoleIndex + 1 );
 	}
 
 	[Broadcast]
@@ -87,15 +74,5 @@ public partial class GameManager
 		var pawn = Client.Local.AssignPawn<GolfBall>();
 		if ( pawn is GolfBall ball )
 			ball.Respawn( holeInfo );
-	}
-
-	private HoleInfo? GetNextHole()
-	{
-		return Holes.ElementAtOrDefault( CurrentHoleIndex + 1 );
-	}
-
-	private void EndGame()
-	{
-
 	}
 }

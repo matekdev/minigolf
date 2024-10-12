@@ -3,10 +3,10 @@ namespace Minigolf;
 [Pawn( "golfball.prefab" )]
 public partial class GolfBall : Pawn
 {
-	[Property, Category( "Core" ), Sync]
+	[Property, Category( "Components" ), Sync]
 	public ModelRenderer Renderer { get; set; }
 
-	[Property, Category( "Core" )]
+	[Property, Category( "Components" )]
 	public GameObject Camera { get; set; }
 
 	[Sync]

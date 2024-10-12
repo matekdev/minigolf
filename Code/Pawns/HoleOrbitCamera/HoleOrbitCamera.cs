@@ -3,8 +3,8 @@ namespace Minigolf;
 [Pawn( "hole_orbit_camera.prefab" )]
 public partial class HoleOrbitCamera : Pawn
 {
-	[Property, Category( "Core" )]
-	public GameObject Camera { get; set; }
+	[Property, Category( "Components" )]
+	public CameraComponent Camera { get; set; }
 
 	private float LerpSpeed => 4.0f;
 	private float DistanceAwayFromHole => 250.0f;

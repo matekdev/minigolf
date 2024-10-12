@@ -3,8 +3,8 @@ namespace Minigolf;
 [Pawn( "spectate.prefab" )]
 public partial class Spectate : Pawn
 {
-	[Property, Category( "Core" )]
-	public GameObject Camera { get; set; }
+	[Property, Category( "Components" )]
+	public CameraComponent Camera { get; set; }
 
 	private Angles EyeAngles { get; set; }
 

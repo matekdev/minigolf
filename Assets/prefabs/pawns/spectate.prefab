@@ -9,8 +9,10 @@
         "__type": "Minigolf.Spectate",
         "__guid": "5e799ecc-6380-4f69-b735-b1af8b1139a6",
         "Camera": {
-          "_type": "gameobject",
-          "go": "fb622ca2-859e-4757-b251-924ce47807f5"
+          "_type": "component",
+          "component_id": "e9ed212f-39d5-49f7-a5f4-525eeb56eb7d",
+          "go": "fb622ca2-859e-4757-b251-924ce47807f5",
+          "component_type": "CameraComponent"
         }
       },
       {
@@ -37,6 +39,7 @@
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
+  "DontBreakAsTemplate": false,
   "ResourceVersion": 1,
   "__references": [],
   "__version": 1
