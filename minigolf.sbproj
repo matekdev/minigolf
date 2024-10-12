@@ -1,7 +1,7 @@
 {
   "Title": "Matt\u0027s Minigolf",
   "Type": "game",
-  "Org": "matt",
+  "Org": "fish",
   "Ident": "minigolf",
   "Schema": 1,
   "IncludeSourceFiles": false,
@@ -10,7 +10,7 @@
   "EditorReferences": null,
   "IsWhitelistDisabled": false,
   "Metadata": {
-    "MaxPlayers": 64,
+    "MaxPlayers": 8,
     "MinPlayers": 1,
     "TickRate": 50,
     "GameNetworkType": "Multiplayer",
@@ -22,7 +22,7 @@
     "PerMapRanking": false,
     "LeaderboardType": "None",
     "CsProjName": "",
-    "StartupScene": "scenes/minimal.scene",
-    "ControlModes": {}
+    "ControlModes": {},
+    "LaunchMode": "Normal"
   }
 }

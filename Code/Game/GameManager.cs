@@ -7,12 +7,18 @@ public partial class GameManager : Component, Component.INetworkListener
 	public static HoleInfo? CurrentHole => Instance?.InternalHoles?.FirstOrDefault( h => h.HoleNumber == Instance?.CurrentHoleNumber );
 	public static int CurrentHoleIndex => Instance?.InternalHoles?.IndexOf( CurrentHole.Value ) ?? -1;
 	public static IReadOnlyList<HoleInfo> Holes => Instance?.InternalHoles ?? new();
+	public static float TimeUntilStart => Instance?.StartTime ?? 0;
 
 	[HostSync]
 	private NetList<HoleInfo> InternalHoles { get; set; } = new();
 
 	[HostSync]
 	private int CurrentHoleNumber { get; set; } = -1;
+
+	public const float WAITING_TIME = 5.0f;
+
+	[HostSync]
+	private float StartTime { get; set; }
 
 	public GameManager()
 	{
@@ -46,12 +52,13 @@ public partial class GameManager : Component, Component.INetworkListener
 			return;
 		}
 
-		StartGame();
+		StartWaiting();
 	}
 
-	private async void StartGame()
+	private async void StartWaiting()
 	{
-		await GameTask.DelaySeconds( 2f );
-		State = GameState.InPlay;
+		StartTime = Time.Now + WAITING_TIME;
+		await GameTask.DelaySeconds( WAITING_TIME );
+		State = GameState.MovingToNextHole;
 	}
 }

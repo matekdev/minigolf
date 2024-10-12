@@ -29,22 +29,29 @@ public partial class GameManager
 					Client.Local.AssignPawn<Spectate>();
 				break;
 			case GameState.HoleComplete:
+				DisplayHoleResults();
+				break;
+			case GameState.MovingToNextHole:
 				MoveToNextHole();
 				break;
 		}
 	}
 
-	private async void MoveToNextHole()
+	private async void DisplayHoleResults()
 	{
 		if ( IsProxy )
 			return;
 
 		await GameTask.DelaySeconds( 4f );
-
 		// UI is shown during this state.
 		State = GameState.MovingToNextHole;
-
 		await GameTask.DelaySeconds( 2f );
+	}
+
+	private void MoveToNextHole()
+	{
+		if ( IsProxy )
+			return;
 
 		var nextHole = GetNextHole();
 		if ( nextHole is null )

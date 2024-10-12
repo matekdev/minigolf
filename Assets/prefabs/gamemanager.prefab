@@ -55,6 +55,10 @@
           {
             "__type": "Minigolf.UI.ParScreen",
             "__guid": "41995431-8976-4f9c-86e3-7c503080909a"
+          },
+          {
+            "__type": "Minigolf.UI.WaitingScreen",
+            "__guid": "401e9de3-5b50-4f96-815f-1984093f413a"
           }
         ]
       }
@@ -64,6 +68,7 @@
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
+  "DontBreakAsTemplate": false,
   "ResourceVersion": 1,
   "__references": [],
   "__version": 1
