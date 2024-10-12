@@ -15,7 +15,7 @@ public partial class GameManager : Component, Component.INetworkListener
 	[HostSync]
 	private int CurrentHoleNumber { get; set; } = -1;
 
-	public const float WAITING_TIME = 5.0f;
+	public const float WAITING_TIME = 1.0f;
 
 	[HostSync]
 	private float StartTime { get; set; }

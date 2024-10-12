@@ -3,12 +3,24 @@
     "__guid": "93fcb1f2-1b71-4d6d-acbf-ebb7caa8f273",
     "Flags": 0,
     "Name": "client",
+    "Position": "-0.001674695,0,0",
     "Enabled": true,
     "NetworkMode": 1,
     "Components": [
       {
         "__type": "Minigolf.Client",
         "__guid": "370df2ba-f400-4caa-89df-ab0980db1ab7"
+      },
+      {
+        "__type": "Sandbox.Voice",
+        "__guid": "11ace1b4-e17f-4358-9dac-559177a4eb4a",
+        "Loopback": false,
+        "Mode": "PushToTalk",
+        "MorphScale": 3,
+        "MorphSmoothTime": 0.1,
+        "PushToTalkInput": "Voice",
+        "Volume": 1,
+        "WorldspacePlayback": true
       }
     ],
     "Children": [],
@@ -17,6 +29,7 @@
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
+  "DontBreakAsTemplate": false,
   "ResourceVersion": 1,
   "__references": [],
   "__version": 1

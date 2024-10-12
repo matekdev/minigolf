@@ -1,0 +1,13 @@
+@namespace Minigolf.UI
+@inherits Panel
+
+<root>
+	<img src="avatar:@Client.SteamId">
+	<div>
+		<label>@Client.DisplayName</label>
+	</div>
+</root>
+
+@code {
+	public Client Client { get; set; }
+}

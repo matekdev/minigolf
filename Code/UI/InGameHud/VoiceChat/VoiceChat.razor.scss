@@ -1,0 +1,9 @@
+@import "/UI/Style.scss";
+
+VoiceChat {
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    flex-direction: column;
+    gap: 5px;
+}

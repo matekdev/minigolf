@@ -59,6 +59,10 @@
           {
             "__type": "Minigolf.UI.WaitingScreen",
             "__guid": "401e9de3-5b50-4f96-815f-1984093f413a"
+          },
+          {
+            "__type": "Minigolf.UI.VoiceChat",
+            "__guid": "272077fc-d7da-4ddb-8bef-53bb4907e0ba"
           }
         ]
       }

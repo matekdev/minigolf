@@ -10,6 +10,35 @@ public partial class Client : Component
 	public ulong SteamId => Connection?.SteamId ?? 0;
 	public string DisplayName => Connection?.DisplayName;
 
+	[RequireComponent]
+	public Voice Voice { get; private set; }
+
+	[Sync]
+	public bool IsSpeaking { get; private set; }
+
+	[Sync]
+	public float VoiceAmplitude { get; private set; }
+
+	protected override void OnStart()
+	{
+		Voice.Enabled = !IsProxy;
+
+		if ( Voice.Enabled )
+		{
+			Voice.Mode = Voice.ActivateMode.PushToTalk;
+			Voice.WorldspacePlayback = false;
+		}
+	}
+
+	protected override void OnUpdate()
+	{
+		if ( IsProxy )
+			return;
+
+		IsSpeaking = Voice.IsRecording;
+		VoiceAmplitude = Voice.Amplitude;
+	}
+
 	[Sync]
 	public Pawn Pawn { get; private set; }
 

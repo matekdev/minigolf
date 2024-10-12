@@ -1,0 +1,19 @@
+@namespace Minigolf.UI
+@inherits PanelComponent
+
+<root>
+	@foreach(var client in GameManager.Clients)
+	{
+		if (!client.IsValid() || !client.IsSpeaking)
+			continue;
+
+		<VoiceChatEntry Client=@client />
+	}
+</root>
+
+@code {
+	protected override int BuildHash()
+	{
+		return HashCode.Combine(GameManager.Clients.HashCombine(c => HashCode.Combine(c.IsValid() && c.IsSpeaking)));
+	}
+}
