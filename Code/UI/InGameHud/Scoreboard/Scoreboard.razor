@@ -86,10 +86,10 @@
 	{
 		get
 		{
-			@* if ( MinigolfGame.Current.State == GameState.EndOfGame )
-				return $"00:{Math.Max( 0, (int)MathF.Floor( MinigolfGame.Current.ReturnToLobbyTime - Time.Now ) ).ToString( "D2" )}";
-			if ( MinigolfGame.Current.IsHoleEnding )
-				return $"00:{Math.Max( 0, (int)MathF.Floor( MinigolfGame.Current.NextHoleTime - Time.Now ) ).ToString( "D2" )}"; *@
+			if ( GameManager.CurrentState == GameState.GameFinished )
+				return $"00:{Math.Max( 0, (int)MathF.Floor( 0f ) ).ToString( "D2" )}";
+			if ( GameManager.CurrentState == GameState.MovingToNextHole )
+				return $"00:{Math.Max( 0, (int)MathF.Floor( 0f ) ).ToString( "D2" )}";
 			return "";
 		}
 	}
@@ -112,7 +112,7 @@
 
 	void IGameEventHandler<GameStateChangeEvent>.OnGameEvent( GameStateChangeEvent eventArgs )
     {
-		ForceOpen = eventArgs.NewState is GameState.MovingToNextHole;
+		ForceOpen = eventArgs.NewState is GameState.MovingToNextHole or GameState.GameFinished;
 	}
 
 	protected override int BuildHash()
