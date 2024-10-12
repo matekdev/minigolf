@@ -17,7 +17,7 @@
         "__guid": "545d51d7-45e4-4381-bfe4-ff6432445566",
         "Center": "0,0,0",
         "IsTrigger": false,
-        "Scale": "25,25,25",
+        "Scale": "15,15,10",
         "Static": false
       }
     ],
@@ -48,6 +48,7 @@
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
+  "DontBreakAsTemplate": false,
   "ResourceVersion": 1,
   "__references": [],
   "__version": 1

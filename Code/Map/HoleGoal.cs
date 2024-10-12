@@ -49,4 +49,20 @@ public class HoleGoal : Component
 	{
 		Scene.Dispatch( new BallCuppedEvent( ball.Owner, currentHole, ball.Owner.GetCurrentHolePar() ) );
 	}
+
+	protected override void DrawGizmos()
+	{
+		Gizmo.Draw.WorldText(
+			$"Hole End #{HoleNumber}",
+			new Transform() { Position = new Vector3( 0.0f, 0.0f, 10.0f ), Scale = new Vector3( 0.1f ) },
+			"Roboto",
+			28
+		);
+
+		if ( Gizmo.IsSelected )
+		{
+			Gizmo.Draw.Color = Color.FromBytes( 117, 184, 46 );
+			Gizmo.Draw.SolidBox( BBox.FromPositionAndSize( BoxCollider.Center, BoxCollider.Scale ) );
+		}
+	}
 }

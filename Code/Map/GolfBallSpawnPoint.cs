@@ -16,6 +16,13 @@ public class GolfBallSpawnPoint : Component
 
 	protected override void DrawGizmos()
 	{
+		Gizmo.Draw.WorldText(
+			$"Hole Spawn #{HoleNumber}",
+			new Transform() { Position = new Vector3( 0.0f, 0.0f, 10.0f ), Scale = new Vector3( 0.1f ) },
+			"Roboto",
+			28
+		);
+
 		Gizmo.Draw.Model( "models/golf_ball/golf_ball.vmdl" );
 	}
 }
